@@ -1,0 +1,12 @@
+{
+  "mongoUrl": "mongodb://localhost:27017/gtfs",
+  "agencies": [
+    {
+      "agency_key": "patco",
+      "url": "http://www.ridepatco.org/developers/PortAuthorityTransitCorporation.zip",
+      "exclude": [
+        "shapes"
+      ]
+    }
+  ]
+}

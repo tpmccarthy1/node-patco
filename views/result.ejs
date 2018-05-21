@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Patco</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Patco</h1>
+    <form action="/result" method="post" enctype="application/x-www-form-urlencoded">
+    	 <button type="submit">Get Time</button></td>
+    </form>
+
+    <div class="times">
+        <ul>
+            <li>
+              <span class="label">Next Train: </span><span><%= result[0] %></span>
+            </li>
+            <li>
+              <span class="label">Next Next Train: <%= result[1] %></span><span></span>
+            </li>
+        </ul>
+    </div>
+<!--      <% var result = JSON.stringify(result) %>
+    <input type="hidden" value="<%= result %>"" id="result"> -->
+     <script type="text/javascript" src="../../javascripts/main.js"></script>
+  </body>
+</html>
