@@ -17,13 +17,13 @@ mongoose.connect(mongoUrl)
 	.then(() => console.log('connection successful'))
 	.catch((err) => console.error(err));
 
-// gtfs.import(config)
-// .then(() => {
-//   console.log('Import Successful');
-// })
-// .catch(err => {
-//   console.error(err);
-// });
+gtfs.import(config)
+.then(() => {
+  console.log('Import Successful');
+})
+.catch(err => {
+  console.error(err);
+});
 
 var app = express();
 

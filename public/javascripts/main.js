@@ -1,28 +1,26 @@
-// d=data, t=target, s=start, e=end, m=middle
+'use strict';
 
-var arr = [1, 2, 5, 7, 29];
-var target = 3;
+var switchButton            = document.querySelector('.switch-button');
+var switchBtnRight          = document.querySelector('.switch-button-case.right');
+var switchBtnLeft           = document.querySelector('.switch-button-case.left');
+var activeSwitch            = document.querySelector('.active');
 
-function binarySearch(d, t, s, e){
-  var m = Math.floor((s + e)/2);
-  if(t == d[m]){
-   return d[m];
-  }
-  if(e - 1 == s){
-  	if(Math.abs(d[s] - t) > Math.abs(d[e] - t)){
-  		return d[e]
-  	} else{
-  		return d[s];
-  	}
-  } 
-  // if(t > d[m]){ 
-  // 	return binarySearch(d,t,m,e);
-  // }
-  if(t < d[m]){
-   return binarySearch(d,t,s,m);
-  }
+function switchLeft(){
+    switchBtnRight.classList.remove('active-case');
+    switchBtnLeft.classList.add('active-case');
+    activeSwitch.style.left                         = '0%';
 }
 
-var closestPoint = binarySearch(arr, target, 0, arr.length-1)
+function switchRight(){
+    switchBtnRight.classList.add('active-case');
+    switchBtnLeft.classList.remove('active-case');
+    activeSwitch.style.left                         = '50%';
+}
 
-console.log(closestPoint);
+switchBtnLeft.addEventListener('click', function(){
+    switchLeft();
+}, false);
+
+switchBtnRight.addEventListener('click', function(){
+    switchRight();
+}, false);

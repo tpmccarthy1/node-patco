@@ -1,0 +1,26 @@
+main{
+	margin: 0 auto;
+}
+
+.intro{
+	float: none;
+	width: 60%;
+	margin: 0 auto;
+	padding-bottom: 20px
+
+	h1{
+	padding: 20px 0;
+	}
+}
+
+.dir-container{
+	ul{
+		li:hover{
+			background: #999;
+			transition: background 1s;
+		}
+
+	}
+
+}
+

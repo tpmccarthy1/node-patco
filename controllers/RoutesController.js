@@ -48,10 +48,8 @@ routeController.getNextTimes = function(req, res){
 		        id = 32
 		}
 
-		console.log(id);
-
-		var stop = req.query.station;
-		var routeId = req.query.direction;
+		var stop = req.query.station;       //Get stop id from user request
+		var routeId = req.query.direction;  //Get direction from user request
 
 		gtfs.getStoptimes({
 			  agency_key: 'patco',
@@ -64,22 +62,18 @@ routeController.getNextTimes = function(req, res){
 			})
 			.then(stoptimes => {
 
-				var time = timeNow();
+				var time = timeNow();    //Get time string using using TimeNow() function
 				
-				// for(x in stoptimes){
-				// 	console.log(stoptimes[x])
-				// }
-				//Get all valid times
-				var validTimes = [];
+				var validTimes = [];      // Array to store times that greater than the current time
 
 				for(j=0; j < stoptimes.length; j++){
-			
+					
+					//If time is less than 10:00 AM, remove leading 0 to allow for valid comparison
 					if(stoptimes[j].departure_time < "10:00"){
 						stoptimes[j].departure_time = stoptimes[j].departure_time.substring(1, 5); 
 						
 					}
-					console.log("09:50" >= time);
-					console.log("9:50" >= time);
+					//If stop ids match and the time is in the future push to the valid times array
 					if(stoptimes[j].stop_id == stop && stoptimes[j].departure_time >= time){
 						validTimes.push(stoptimes[j].departure_time);
 					}
@@ -87,14 +81,18 @@ routeController.getNextTimes = function(req, res){
 
 	
 
+				//Loop to format strings in 12 hour clock format
 				for(var z =0; z < 2; z++){
 					var num = parseInt(validTimes[z].substring(0,2));
 					if(num > 12){						
 						validTimes[z] = (num-12).toString() + ":" + validTimes[z].substring(3, 5) + " PM";
 					}
 				}
+
+				//Array of next two times to send to client
 				var result = [validTimes[0], validTimes[1]];
 
+				//Render the result on client
 				res.render("./result", {result: result});
 			})
 
