@@ -2,16 +2,20 @@
 <html>
   <head>
     <title>Patco</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/main.css' />
   </head>
   <body>
-    <h1>Patco</h1>
 
-		<div class="switch-button"><span class="active"></span>
-		  <button class="switch-button-case left active-case">Pizza</button>
-		  <button class="switch-button-case right">Pasta</button>
-		</div>
-		
+  	<header> 		
+  		<h1>Next PATCO</h1>
+  	</header>
+  	
+  	<main>
+
+  		<div class="intro">
+  			<p>This app will show you the next PATCO train departure time based on your location and direction. Simply choose your closet stop and which direction you are traveling.</p>
+  		</div>
+
 	    <form action="/result" method="get" enctype="application/x-www-form-urlencoded">
 	    	 <ul>
 	    	 	<li>
@@ -33,13 +37,15 @@
 	              </li>
 	              <li>
 	    	 		<select name="direction" id="direction" >
+		                <option value="2">Westbound</option>    
 		                <option value="1">Eastbound</option>
-		                <option value="2">Westbound</option>           
 	              	</select>
 	              </li>
 	    	 </ul>
 	    	 <button type="submit">Get Time</button></td>
 	    </form>
+
+	</main>
 
      <script type="text/javascript" src="../../javascripts/main.js"></script>
   </body>

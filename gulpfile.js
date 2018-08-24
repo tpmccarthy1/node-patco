@@ -1,47 +1,49 @@
-var gulp = require('gulp');
+'use strict';
 
-//requires 
-var sass = require('gulp-sass');
-var browserSync = require('browser-sync').create();
-var runSequence = require('run-sequence');
+const gulp        = require('gulp');
+const sass        = require('gulp-sass');
+const nodemon     = require('gulp-nodemon');
+const browserSync = require('browser-sync');
+const reload      = browserSync.reload;
+const pkg         = require('./package.json');
 
+gulp.task('nodemon', function (cb) {
 
+  var started = false;
 
+  return nodemon({
+    script : pkg.main,
+    nodeArgs : ['--debug']
+  }).on('start', function () {
+    if (!started) {
+      cb();
+      started = true;
+    }
+  });
+})
 
-//compile sass
-
-gulp.task('sass', function(){
-  return gulp.src('./scss/**/*.scss')
-    .pipe(sass()) // Converts Sass to CSS with gulp-sass
-    .pipe(gulp.dest('./public/stylesheets/'))
-    .pipe(browserSync.reload({
-      stream: true
-    }))
-});
-
-//browser-sync task
-gulp.task('browserSync', function() {
-  browserSync.init({
-    server: {
-      baseDir: '/',
-    },
-    port: 3000
+gulp.task('browser-sync', ['nodemon'], function() {
+  browserSync.init(null, {
+    proxy : 'http://localhost:3000',
+    files : ['public/**/*.*'],
+    browser : 'google chrome',
+    port : 7000
   });
 });
 
-//gulp watch 
-
-gulp.task('watch', ['browserSync', 'sass'], function (){
-  gulp.watch('./scss/**/*.scss', ['sass']); 
-  // Other watchers
-  gulp.watch('./views/**/*.ejs', browserSync.reload); 
-  gulp.watch('./public/js/*.js', browserSync.reload); 
+gulp.task('sass', function () {
+  return gulp.src('./scss/*.scss')
+      .pipe(sass({
+        errLogToConsole : true,
+        sourceComments : true,
+      }).on('error', sass.logError))
+      .pipe(gulp.dest('./public/stylesheets/'))
+      .pipe(reload({ stream : true }));
 });
 
+gulp.task('watch', function () {
+  gulp.watch('./scss/**/*.scss', ['sass']);
+  gulp.watch('./public/**/*.*').on('change', reload);
+});
 
-//default task
-gulp.task('default', function (callback) {
-  runSequence(['sass','browserSync', 'watch'],
-    callback
-  )
-})
+gulp.task('default', ['watch', 'sass', 'browser-sync']);

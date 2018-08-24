@@ -2,26 +2,64 @@
 <html>
   <head>
     <title>Patco</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/main.css' />
   </head>
   <body>
-    <h1>Patco</h1>
-    <form action="/result" method="post" enctype="application/x-www-form-urlencoded">
-    	 <button type="submit">Get Time</button></td>
-    </form>
 
-    <div class="times">
+    <header>    
+      <h1>Next PATCO</h1>
+    </header>
+    
+    <main>
+
+      <div class="intro">
+        <p>This app will show you the next PATCO train departure time based on your location and direction. Simply choose your closet stop and which direction you are traveling.</p>
+      </div>
+
+      <form action="/result" method="get" enctype="application/x-www-form-urlencoded">
+         <ul>
+          <li>
+            <select name="station" id="station" >
+                    <option value="1">Lindenwold</option>
+                    <option value="2">Ashland</option>
+                    <option value="3">Woodcrest</option>
+                    <option value="4">Haddonfield</option>
+                    <option value="5">Westmont</option>
+                    <option value="6">Collingswood</option>
+                    <option value="7">Ferry Ave</option>
+                    <option value="8">Broadway</option>
+                    <option value="9">City Hall</option>
+                    <option value="10">8th & Market</option>
+                    <option value="11">9/10 & Locust</option>
+                    <option value="12">12/13 & Locust</option>
+                    <option value="13">15/16 & Locust</option>
+                  </select>
+                </li>
+                <li>
+            <select name="direction" id="direction" >
+                    <option value="2">Westbound</option>    
+                    <option value="1">Eastbound</option>          
+                  </select>
+                </li>
+         </ul>
+         <button type="submit">Get Time</button></td>
+      </form>
+
+      
+      <div class="times">
         <ul>
             <li>
-              <span class="label">Next Train: </span><span><%= result[0] %></span>
+              <span class="label">The next train from <%= direction %> heading towards <%= direction %> is </span><span><%= result[0] %>.</span>
             </li>
             <li>
-              <span class="label">Next Next Train: <%= result[1] %></span><span></span>
+              <span class="label">The next train after is <%= result[1] %></span><span></span>
             </li>
         </ul>
-    </div>
-<!--      <% var result = JSON.stringify(result) %>
-    <input type="hidden" value="<%= result %>"" id="result"> -->
+       </div>
+
+  </main>
+
      <script type="text/javascript" src="../../javascripts/main.js"></script>
   </body>
 </html>
+
