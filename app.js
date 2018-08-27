@@ -9,7 +9,7 @@ const gtfs = require('gtfs');
 const config = require('./config.json');
 
 //init mongo 
-const mongoUrl = "mongodb://localhost:27017/gtfs";
+const mongoUrl = process.env.MONGODB_URI;
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
@@ -17,13 +17,13 @@ mongoose.connect(mongoUrl)
 	.then(() => console.log('connection successful'))
 	.catch((err) => console.error(err));
 
-// gtfs.import(config)
-// .then(() => {
-//   console.log('Import Successful');
-// })
-// .catch(err => {
-//   console.error(err);
-// });
+gtfs.import(config)
+.then(() => {
+  console.log('Import Successful');
+})
+.catch(err => {
+  console.error(err);
+});
 
 var app = express();
 app.set('port', process.env.PORT || 3000);
