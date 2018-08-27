@@ -1,5 +1,5 @@
 {
-  "mongoUrl": "process.env.MONGODB_URL",
+  "mongoUrl": process.env.MONGODB_URL,
   "agencies": [
     {
       "agency_key": "patco",
