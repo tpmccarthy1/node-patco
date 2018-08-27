@@ -320,13 +320,13 @@ main {
 
 /* line 67, scss/partials/_base.scss */
 .intro {
-  font-size: 20px;
+  font-size: 50px;
   padding: 30px 20px 15px 20px; }
 
 /* line 72, scss/partials/_base.scss */
 .result {
   padding-top: 30px;
-  font-size: 30px; }
+  font-size: 50px; }
   /* line 75, scss/partials/_base.scss */
   .result .highlight {
     color: #FF6A67;
@@ -369,7 +369,7 @@ form {
   display: block;
   border-radius: 0;
   box-shadow: none;
-  font-size: 50px;
+  font-size: 80px;
   margin: 15px auto;
   width: 100%; }
   /* line 112, scss/partials/_base.scss */
@@ -478,7 +478,7 @@ form {
     height: 100px;
     border: 3px solid #fff;
     border-radius: 0;
-    font-size: 30px;
+    font-size: 50px;
     font-weight: 400;
     color: inherit;
     padding: 11px 15px;

@@ -65,13 +65,13 @@ main{
 
 //intro paragraph
 .intro{
-  font-size: 20px;
+  font-size: 50px;
   padding: 30px 20px 15px 20px;
 }
 
 .result{
   padding-top: 30px;
-  font-size: 30px;
+  font-size: 50px;
   .highlight{
     color: $header-background;
     font-weight: 400;
@@ -211,7 +211,7 @@ form{
   display: block;
   border-radius: 0;
   box-shadow: none;
-  font-size: 50px;
+  font-size: 80px;
   // padding: 11px 15px;
   margin: 15px auto;
   width: 100%;
@@ -282,7 +282,7 @@ form{
     height: 100px;
     border: $border-width solid $header-font-color;
     border-radius: 0;
-    font-size: 30px;
+    font-size: 50px;
     font-weight: 400;
     color: inherit;
     padding: 11px 15px;
