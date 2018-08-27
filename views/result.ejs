@@ -12,52 +12,10 @@
     
     <main>
 
-      <div class="intro">
-        <p>This app will show you the next PATCO train departure time based on your location and direction. Simply choose your closet stop and which direction you are traveling.</p>
+      <div class="result">
+         <p>The next train from <span class="highlight"><%= stopName %></span> heading towards <span class="highlight"><%= destination %></span> departs at <span class="highlight"><%= result[0] %></span>. The next train after is departing at <span class="highlight"><%= result[1] %></span>.</p>
+        <a href="/" class="btn" id="back-btn"><span>Go Back</span></a></td>
       </div>
-
-      <form action="/result" method="get" enctype="application/x-www-form-urlencoded">
-         <ul>
-          <li include="form-input-select()">
-            <select required name="station" id="station" >
-                    <option value="" hidden>Choose a station...</option>
-                    <option value="1">Lindenwold</option>
-                    <option value="2">Ashland</option>
-                    <option value="3">Woodcrest</option>
-                    <option value="4">Haddonfield</option>
-                    <option value="5">Westmont</option>
-                    <option value="6">Collingswood</option>
-                    <option value="7">Ferry Ave</option>
-                    <option value="8">Broadway</option>
-                    <option value="9">City Hall</option>
-                    <option value="10">8th & Market</option>
-                    <option value="11">9/10 & Locust</option>
-                    <option value="12">12/13 & Locust</option>
-                    <option value="13">15/16 & Locus</option>
-                  </select>
-                </li>
-                <li include="form-input-select()">
-            <select required name="direction" id="direction" >
-              <option value="" hidden>Choose a direction..</option>
-                    <option value="2">Westbound</option>    
-                    <option value="1">Eastbound</option>
-                  </select>
-                </li>
-         </ul>
-         
-         <button type="submit" class="btn"><span>Get Time</span></button></td>
-      </form>
-  
-      <div class="times">
-        <ul>
-            <li>
-              <span class="label">The next train from <%= stopName %> heading towards <%= destination %> is </span><span><%= result[0] %>.</span>
-            </li>
-            <li>
-              <span class="label">The next train after is <%= result[1] %></span><span></span>
-            </li>
-        </ul>
-       </div>
 
   </main>
 

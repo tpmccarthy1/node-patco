@@ -43,7 +43,7 @@ header {
   padding: 20px;
   text-align: center;
   text-transform: uppercase;
-  font-size: 50px;
+  font-size: 95px;
   }
   a,
   a:visited {
@@ -69,6 +69,14 @@ main{
   padding: 30px 20px 15px 20px;
 }
 
+.result{
+  padding-top: 30px;
+  font-size: 30px;
+  .highlight{
+    color: $header-background;
+    font-weight: 400;
+  }
+}
 
 //container for login and reg forms
 form{
@@ -203,7 +211,7 @@ form{
   display: block;
   border-radius: 0;
   box-shadow: none;
-  font-size: 16px;
+  font-size: 50px;
   // padding: 11px 15px;
   margin: 15px auto;
   width: 100%;
@@ -271,8 +279,10 @@ form{
   // this is mainly for :focus and tabbing.
 
   select {
+    height: 100px;
     border: $border-width solid $header-font-color;
     border-radius: 0;
+    font-size: 30px;
     font-weight: 400;
     color: inherit;
     padding: 11px 15px;
@@ -298,8 +308,7 @@ form{
     // we use invalid like a placeholder
     &:invalid {
       color: $header-font-color;
-    }
-
+    } 
   }
 }
 
@@ -313,7 +322,7 @@ form{
 
 .btn {
   position: relative;
-
+  width: 100%;
   display: block;
   margin: 30px auto;
   padding: 0;
@@ -324,16 +333,19 @@ form{
   outline: none;
   border-radius: 0px;
   border-color: #fff;
-  background-color: $main-background;
+  background-color: $header-background;
   color: $header-font-color;
   
   transition: background-color .3s;
   font-weight: 400;
-  font-size: 18px;
+  font-size: 100px;
+  a{
+    text-decoration: none;
+  }
 }
 
 .btn:hover, .btn:focus {
-  background-color: $header-background;
+  background-color: $main-background;
 }
 
 .btn > * {
@@ -372,4 +384,6 @@ form{
   transition: width .2s ease-out, padding-top .2s ease-out;
 }
 
-
+#back-btn.span{
+  text-decoration: none;
+}
