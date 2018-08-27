@@ -1,7 +1,7 @@
 /*
-
+*
 RoutesController.js: This controller contains all code to get Patco stops
-
+*
 */
 
 var mongoose = require("mongoose");
@@ -111,33 +111,49 @@ routeController.getNextTimes = function(req, res){
 				var result = [validTimes[0], validTimes[1]];
 
 				
-
+				var stopName = "";
+				console.log(typeof stop);
 				//Set stop to string of stop's name
 				switch(stop){
-					case 2 : stop = "Ashland";
-					case 3 : stop = "Woodcrest";
-					case 4 : stop = "Haddonfield";
-					case 5 : stop = "Westmont";
-					case 6 : stop ="Collingswood";
-					case 7 : stop = "Ferry Ave";
-					case 8 : stop = "Broadway";
-					case 9 : stop = "City Hall";
-					case 10 : stop = "8th & Market";
-					case 11 : stop = "9/10 & Locust";
-					case 12 : stop = "12/13 & Locust";
-					case 13 : stop = "15/16 & Locust";
-					//default : stop = "Lindenwold";
+					case "1" : stopName = "Lindenwold";
+					break;
+					case "2" : stopName = "Ashland";
+					break;
+					case "3" : stopName = "Woodcrest";
+					break;
+					case "4" : stopName = "Haddonfield";
+					break;
+					case "5" : stopName = "Westmont";
+					break;
+					case "6" : stopName ="Collingswood";
+					break;
+					case "7" : stopName = "Ferry Ave";
+					break;
+					case "8" : stopName = "Broadway";
+					break;
+					case "9" : stopName = "City Hall";
+					break;
+					case "10" : stopName = "8th & Market";
+					break;
+					case "11" : stopName = "9/10 & Locust";
+					break;
+					case "12" : stopName = "12/13 & Locust";
+					break;
+					default : stopName = "15/16 & Locust";
+					break;				
 				}
 
 				//Set direction to string of destination name
-				// switch(routeId){
-				// 	case 2 : routeId = "Lindenwold, NJ";
-				// 	//default : routeId = "15/16 Locust";
-
-				// }
+				var destination = "";
+				switch(routeId){
+					case "1" : destination = "Lindenwold, NJ";
+					break;
+					default : destination = "Philadelphia, PA";
+					break;
+				}
 				
 				//Render the result on client
-				res.render("./result", {result: result, stop: stop, routeId: routeId});
+				res.render("./result", {result: result, stopName: stopName, destination: destination});
 
 			})
 		
