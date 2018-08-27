@@ -18,8 +18,9 @@
 
 	    <form action="/result" method="get" enctype="application/x-www-form-urlencoded">
 	    	 <ul>
-	    	 	<li>
-	    	 		<select name="station" id="station" >
+	    	 	<li include="form-input-select()">
+	    	 		<select required name="station" id="station" >
+		                <option value="" hidden>Choose a station...</option>
 		                <option value="1">Lindenwold</option>
 		                <option value="2">Ashland</option>
 		                <option value="3">Woodcrest</option>
@@ -35,18 +36,18 @@
 		                <option value="13">15/16 & Locus</option>
 	              	</select>
 	              </li>
-	              <li>
-	    	 		<select name="direction" id="direction" >
+	              <li include="form-input-select()">
+	    	 		<select required name="direction" id="direction" >
+	    	 			<option value="" hidden>Choose a direction..</option>
 		                <option value="2">Westbound</option>    
 		                <option value="1">Eastbound</option>
 	              	</select>
 	              </li>
 	    	 </ul>
-	    	 <button type="submit">Get Time</button></td>
+	    	 <button type="submit" class="btn"><span>Get Time</span></button></td>
 	    </form>
 
 	</main>
-
-     <script type="text/javascript" src="../../javascripts/main.js"></script>
+	
   </body>
 </html>

@@ -48,7 +48,7 @@ routeController.getNextTimes = function(req, res){
 		        id = 32;
 		}
 
-		var stop = req.query.station;       //Get stop id from user request
+
 		var routeId = req.query.direction;  //Get direction from user request
 
 		gtfs.getStoptimes({
@@ -61,14 +61,22 @@ routeController.getNextTimes = function(req, res){
 			  sort: {stop_id: 1}
 			})
 			.then(stoptimes => {
+				var stop = req.query.station;       //Get stop id from user request
 				
-				var time = timeNow();    //Get time string using using TimeNow() function	
+				//Get current time & and format if necessary
+				var time = timeNow();    //Get time string using using TimeNow() function			
+				//Add 0 character to front of time string if less than 10:00 AM for valid comparision
+				if(time.length === 7 ){
+					time = "0" + "9:54:23";
+					console.log(time);
+ 				}
+
+
 				var validTimes = [];      // Array to store times that greater than the current time
-				
 
 				for(j=0; j < stoptimes.length; j++){
 					//If stop ids match and the time is in the future push to the valid times array
-					if(stoptimes[j].stop_id === stop && stoptimes[j].departure_time >= time){
+					if(stoptimes[j].stop_id === stop && stoptimes[j].departure_time >= time){	
 						validTimes.push(stoptimes[j].departure_time.substring(0, 5));
 					}
 				}
@@ -115,7 +123,6 @@ routeController.getNextTimes = function(req, res){
 					//default : stop = "Lindenwold";
 				}
 
-					console.log(direction);
 				//Set direction to string of destination name
 				// switch(routeId){
 				// 	case 2 : routeId = "Lindenwold, NJ";
@@ -129,8 +136,6 @@ routeController.getNextTimes = function(req, res){
 			})
 		
 	}
-
-		
 
 
 //export park controller as modul/e

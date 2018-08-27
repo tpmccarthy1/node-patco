@@ -6,16 +6,26 @@ $header-background: #FF6A67;
 $main-background: #7B8898;
 $nav-background: #222;
 $header-font-color: #fff;
-$nav-font-color: #fff;
 $link-hover-color: #2581DC;
 
-*{
-	box-sizing: border-box;
-}
 
-html{
-	height: 100%;
+// Demo Colors
+$demo-blue: #005BA6;
+$demo-gray: #D6D6D6;
+$demo-placeholder: #C7C7C7;
+$demo-border: #E6E6E6;
+
+$border-width: 3px;
+
+
+// begin spec stuff up
+html {
+  box-sizing: border-box;
 }
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+// end stuff up
 
 body{
   height: 100%;
@@ -25,7 +35,7 @@ body{
 
 
 
-// Logo and branding
+// Header
 header {
   background: $header-background;
   h1{
@@ -37,7 +47,7 @@ header {
   }
   a,
   a:visited {
-    color: $nav-font-color;
+    color: $header-font-color;
     text-decoration: none;
   }
 }
@@ -55,14 +65,14 @@ main{
 
 //intro paragraph
 .intro{
-  padding: 10px 20px;
-
+  font-size: 20px;
+  padding: 30px 20px 15px 20px;
 }
 
 
 //container for login and reg forms
 form{
-	width: 80%;
+	width: 100%;
 	margin: 0 auto;
 	select{
   option{
@@ -85,102 +95,281 @@ form{
 }
 
 
-//form btn styles
+//Select form reset mixin
+@mixin _select-form-reset() {
+  display: block;
+  padding: 0;
+  position: relative;
+
+  &::before,
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    pointer-events: none; // Arrow clickable in some browsers
+    z-index: 2;
+  }
+
+  // This is the native select, we're making everything but the text invisible so we can see the button styles in the wrapper
+  select {
+    -webkit-appearance: none;
+    appearance: none;
+    background: none;
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+    border: 1px solid transparent;
+    font-size: 16px; // Font size must the 16px or larger to prevent iOS page zoom on focus
+    outline: none;
+
+    /* Focus style */
+    &:focus {
+      background-color: transparent;
+      outline: none;
+    }
+  }
+
+  /* Set options to normal weight */
+  option {
+    font-weight: normal;
+  }
+
+  /* ------------------------------------  */
+  /* START OF UGLY BROWSER-SPECIFIC HACKS */
+  /* ----------------------------------  */
+
+  // Targeted via this hack http://browserhacks.com/#hack-a3f166304aafed524566bc6814e1d5c7
+  x:-o-prefocus, &::after {
+    display: none;
+  }
+  // IE 10/11+ - This hides native dropdown button arrow so it will have the custom appearance,
+  // IE 9 and earlier get a native select - targeting media query hack via http://browserhacks.com/#hack-28f493d247a12ab654f6c3637f6978d5 - looking for better ways to achieve this targeting
+  // The second rule removes the odd blue bg color behind the text in the select button in IE 10/11 and sets the text color to match the focus style's - fix via http://stackoverflow.com/questions/17553300/change-ie-background-color-on-unopened-focused-select-box */
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    & {
+      select {
+        &::-ms-expand {
+          display: none;
+        }
+
+        &:focus::-ms-value {
+          background: transparent;
+          color: #000;
+        }
+
+      }
+    }
+  }
+
+  /* FIREFOX won't let us hide the native select arrow, so we have to make it wider than needed and clip it via overflow on the parent container.
+     The percentage width is a fallback since FF 4+ supports calc() so we can just add a fixed amount of extra width to push the native arrow out of view. We're applying this hack across all FF versions because all the previous hacks were too fragile and complex.
+     You might want to consider not using this hack and using the native select arrow in FF. Note this makes the menus wider than the select button because they display at the specified width and aren't clipped. Targeting hack via http://browserhacks.com/#hack-758bff81c5c32351b02e10480b5ed48e */
+  /* Show only the native arrow */
+  @-moz-document url-prefix() {
+    & {
+      overflow: hidden;
+
+      select {
+        width: 120%;
+        width: -moz-calc(100% + 3em);
+        width: calc(100% + 3em);
+        
+        @supports(-moz-appearance: none) {
+          width: 100%;          
+        }
+        
+
+        /* Firefox focus has odd artifacts around the text, this kills that. See https://developer.mozilla.org/en-US/docs/Web/CSS/:-moz-focusring */
+        &:-moz-focusring {
+          color: transparent;
+          text-shadow: 0 0 0 #000;
+        }
+      }
+    }
+  }
+  
+  @supports( -moz-appearance: none ) {
+    & {
+      width: 100%;          
+    }
+  }
+
+}
+
+// Select style function
+@mixin form-input-select(){
+  @include _select-form-reset;
+  color: $header-font-color;
+  display: block;
+  border-radius: 0;
+  box-shadow: none;
+  font-size: 16px;
+  // padding: 11px 15px;
+  margin: 15px auto;
+  width: 100%;
+
+  &::before,
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    pointer-events: none; // Arrow clickable in some browsers
+
+    // triangle set up
+    border: 1px solid transparent; // reset all borders
+    width: 0;
+    height: 0;
+    right: 16px;
+  }
+
+  // top arrow
+  &::before {
+    bottom: 55%;
+    border-width: 0 6.5px 8px 6.5px;
+    border-bottom-color: $header-font-color;
+  }
+
+  // bottom arrow
+  &::after {
+    border-width: 8px 6.5px 0 6.5px;
+    border-top-color: $header-font-color;
+    top: 55%;
+  }
+  
+  // firefox is outside the div
+  @-moz-document url-prefix() {
+    border-right: $border-width solid $header-font-color;
+    
+    &:hover {
+      border-right: $border-width solid $header-background;
+    }
+  }
+
+  &:hover {
+
+    select {
+      box-shadow: 0 2px 3px rgba($demo-blue, 0.1) inset;
+      border-color: $header-background;
+
+      // outline is critical but when we are hovering the div has the border already.
+      &:focus {
+        outline-color: transparent;
+      }
+      
+    }
+
+    &::before {
+      border-bottom-color: $header-background
+    }
+    &::after {
+      border-top-color: $header-background;
+    }
+
+  }
+
+  // Make sure you set all padding, borders on this select and not the parent div.
+  // this is mainly for :focus and tabbing.
+
+  select {
+    border: $border-width solid $header-font-color;
+    border-radius: 0;
+    font-weight: 400;
+    color: inherit;
+    padding: 11px 15px;
+    line-height: normal;
+    transition: border-color 0.2s ease,
+                outline 0.2s ease;
+
+
+    // we really need this for the tabbers
+    // causes double borders though
+    &:focus {
+      box-shadow: 0 3px 4px rgba($header-font-color, 0.3) inset;
+      // outline is critical for usability
+      outline: $border-width solid $header-font-color;
+      outline-offset: -#{$border-width}; //offset vs width
+    }
+
+    &[disabled], &:disabled{
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    // we use invalid like a placeholder
+    &:invalid {
+      color: $header-font-color;
+    }
+
+  }
+}
+
+// Show the function
+[include*="form-input-select()"] {
+  @include form-input-select();
+}
+
+
+//Button style
 
 .btn {
-  background: #222;
-  background-image: -webkit-linear-gradient(top, #222, #444);
-  background-image: -moz-linear-gradient(top, #222, #444);
-  background-image: -ms-linear-gradient(top, #222, #444);
-  background-image: -o-linear-gradient(top, #222, #444);
-  background-image: linear-gradient(to bottom, #222, #444);
-  -webkit-border-radius: 11;
-  -moz-border-radius: 11;
-  border-radius: 11px;
-  color: #ffffff;
-  font-size: 15px;
-  padding: 8px 18px 8px 18px;
-  text-decoration: none;
-  border: none;
-}
+  position: relative;
 
-.btn:hover {
-  background: #c2c2c2;
-  text-decoration: none;
-}
-
-//styles for show individual park view
-
-.img-container{
-	width: 50%;
-	margin: 0 auto;
-	p{
-		padding: 10px;
-	}
-	img{
-		width: 100%;
-	}
-}
-
-//footer styles
-
-footer{
-	position: relative;
-	left: 0;
-	bottom: 0;
-	text-align: center;
-	background-color: #222;
-	
-	height: 60px;
-	margin: 0 auto;
-		p{
-		color: #fff;
-		padding-top: 20px;
-		}
-}
-
-.show-park{
-
-	li{
-	padding-top: 10px;
-	}
-	.label{
-	font-weight: 500;
-	}
-}	
-
-
-//google maps container
-
-.map-container{
-  height: 500%;
-  h2{
-  font-size: 25px;
-  background: #444;
-  font-weight: 300;
-  color: #fff;
-  margin: 20px;
-  &:hover{
-    background: #444;
-    }
-    
-  }
-}
-
-
-#map{
-  margin: 20px;
+  display: block;
+  margin: 30px auto;
   padding: 0;
-  height: 400px;
-  max-width: none;
-  -webkit-box-shadow: 4px 5px 15px -4px rgba(0,0,0,0.75);
-  -moz-box-shadow: 4px 5px 15px -4px rgba(0,0,0,0.75);
-  box-shadow: 4px 5px 15px -4px rgba(0,0,0,0.75);
-  }
 
+  overflow: hidden;
 
+  border-width: $border-width;
+  outline: none;
+  border-radius: 0px;
+  border-color: #fff;
+  background-color: $main-background;
+  color: $header-font-color;
+  
+  transition: background-color .3s;
+  font-weight: 400;
+  font-size: 18px;
+}
 
+.btn:hover, .btn:focus {
+  background-color: $header-background;
+}
 
+.btn > * {
+  position: relative;
+}
 
+.btn span {
+  display: block;
+  padding: 12px 24px;
+}
+
+.btn:before {
+  content: "";
+  
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  
+  display: block;
+  width: 0;
+  padding-top: 0;
+    
+  border-radius: 100%;
+  
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.btn:active:before {
+  width: 120%;
+  padding-top: 120%;
+  
+  transition: width .2s ease-out, padding-top .2s ease-out;
+}
 
 
