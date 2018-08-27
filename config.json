@@ -1,5 +1,5 @@
 {
-  "mongoUrl": "mongodb://localhost:27017/gtfs",
+  "mongoUrl": "process.env.MONGODB_URL",
   "agencies": [
     {
       "agency_key": "patco",
