@@ -22,6 +22,11 @@ routeController.home = function(req, res){
 //Time formatter function
 function timeNow(){
 		var d = new Date(); // for now
+
+		//Timezone offset UTC - 5 
+		d.setTime(d.getTime() + d.getTimezoneOffset() * 60 * 1000 /* convert to UTC */ - (/* UTC-5 */ 4) * 60 * 60 * 1000);
+		console.log('UTC-5 Time:', d);
+
 		var hours = d.getHours(); // => 9
 		var min = d.getMinutes(); // =>  30
 		var sec = d.getSeconds(); // => 51
@@ -66,6 +71,7 @@ routeController.getNextTimes = function(req, res){
 				//Get current time & and format if necessary
 				var time = timeNow();    //Get time string using using TimeNow() function			
 				//Add 0 character to front of time string if less than 10:00 AM for valid comparision
+							
 				if(time.length === 7 ){
 					time = "0" + "9:54:23";
 					console.log(time);
