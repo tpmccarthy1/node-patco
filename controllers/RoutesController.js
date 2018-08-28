@@ -73,8 +73,8 @@ routeController.getNextTimes = function(req, res){
 				//Add 0 character to front of time string if less than 10:00 AM for valid comparision
 							
 				if(time.length === 7 ){
-					time = "0" + "9:54:23";
-					console.log(time);
+					time = "0" + time;
+					//console.log(time);
  				}
 
 
