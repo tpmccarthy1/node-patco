@@ -112,7 +112,6 @@ routeController.getNextTimes = function(req, res){
 
 				
 				var stopName = "";
-				console.log(typeof stop);
 				//Set stop to string of stop's name
 				switch(stop){
 					case "1" : stopName = "Lindenwold";
@@ -152,8 +151,8 @@ routeController.getNextTimes = function(req, res){
 					break;
 				}
 				
-				//Render the result on client
-				res.render("./result", {result: result, stopName: stopName, destination: destination});
+				//Send the result to client 
+				res.send("<p>The next train from <span class='highlight'>" + stopName + "</span> towards <span class='highlight'>" + destination + "</span> departs at <span class='highlight'>" + result[0] + "</span>. The next train after departs at <span class='highlight'>" + result[1] + "</span>.</p> <button type='submit' id='submit-btn' class='btn'><span><a href='#top'>Go back</a></span></button>");
 
 			})
 		

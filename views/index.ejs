@@ -4,20 +4,25 @@
     <title>Patco</title>
     <link rel='stylesheet' href='/stylesheets/main.css' />
   </head>
-  <body>
+  <body id="top">
 
   	<header> 		
   		<h1>Next PATCO</h1>
   	</header>
   	
-  	<main>
+  	<main class="m-all t-all d-all">
 
-  		<div class="intro">
-  			<p>This app will show you the next PATCO train departure time based on your location and direction. Simply choose your closet stop and which direction you are traveling.</p>
+  		<div class="intro m-all t-all d-2of3">
+ 		<h2>Instructions</h2>
+ 		<ol>
+ 			<li>1. Choose a station</li>
+ 			<li>2. Pick a direction</li>
+ 			<li>3. Click Get Times</li>
+ 		</ol>
   		</div>
 
-	    <form action="/result" method="get" enctype="application/x-www-form-urlencoded">
-	    	 <ul>
+  		<div class="m-all t-all d-2of3">
+	    	 <ul class="form">
 	    	 	<li include="form-input-select()">
 	    	 		<select required name="station" id="station" >
 		                <option value="" class="placeholder" hidden>Choose a station...</option>
@@ -44,10 +49,16 @@
 	              	</select>
 	              </li>
 	    	 </ul>
-	    	 <button type="submit" class="btn"><span>Get Time</span></button></td>
-	    </form>
+	    	 <button type="submit" id="submit-btn" class="btn"><span><a href="#result">Get Time</a></span></button></td>
+	    </div>
+	
+	    <div id="result" class="m-all t-all d-1of3">
+	    	
+
+	    </div>
 
 	</main>
-
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="/javascripts/main.js"></script>
   </body>
 </html>

@@ -9,7 +9,7 @@ const gtfs = require('gtfs');
 const config = require('./config.json');
 
 //init mongo 
-const mongoUrl = "mongodb://tpmccarthy1:sayrebrook1@ds133252.mlab.com:33252/nextpatco";
+const mongoUrl = process.env.MONGODB_URL;
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 

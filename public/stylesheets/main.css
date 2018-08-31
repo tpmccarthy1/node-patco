@@ -291,68 +291,77 @@ html {
 /* line 30, scss/partials/_base.scss */
 body {
   height: 100%;
-  background: #7B8898;
+  background: #CCC;
   font-family: "Roboto", sans-serif; }
 
-/* line 39, scss/partials/_base.scss */
+/* line 37, scss/partials/_base.scss */
 header {
-  background: #FF6A67; }
-  /* line 41, scss/partials/_base.scss */
+  background: #444; }
+  /* line 39, scss/partials/_base.scss */
   header h1 {
     color: #fff;
     padding: 20px;
     text-align: center;
     text-transform: uppercase;
     font-size: 95px; }
-  /* line 48, scss/partials/_base.scss */
+  /* line 46, scss/partials/_base.scss */
   header a,
   header a:visited {
     color: #fff;
     text-decoration: none; }
 
-/* line 58, scss/partials/_base.scss */
+/* line 56, scss/partials/_base.scss */
 main {
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
-  text-align: center;
   color: #fff;
   font-weight: 200; }
 
-/* line 67, scss/partials/_base.scss */
+/* line 64, scss/partials/_base.scss */
 .intro {
-  font-size: 50px;
-  padding: 30px 20px 15px 20px; }
+  text-align: center;
+  font-size: 60px;
+  padding: 50px 50px;
+  color: #444; }
+  /* line 65, scss/partials/_base.scss */
+  .intro h2 {
+    text-decoration: underline;
+    font-weight: 600;
+    padding-bottom: 20px; }
 
-/* line 72, scss/partials/_base.scss */
+/* line 76, scss/partials/_base.scss */
 .result {
   padding-top: 30px;
   font-size: 50px; }
-  /* line 75, scss/partials/_base.scss */
+  /* line 79, scss/partials/_base.scss */
   .result .highlight {
-    color: #FF6A67;
+    color: #444;
     font-weight: 400; }
 
-/* line 82, scss/partials/_base.scss */
-form {
-  width: 100%;
+/* line 86, scss/partials/_base.scss */
+.form {
+  width: 80%;
   margin: 0 auto; }
-  /* line 86, scss/partials/_base.scss */
-  form select option {
-    padding-top: 15px; }
   /* line 90, scss/partials/_base.scss */
-  form form {
-    font-size: 20px; }
-  /* line 94, scss/partials/_base.scss */
-  form h2 {
-    margin: 20px 0; }
-  /* line 97, scss/partials/_base.scss */
-  form .password {
-    padding-top: 10px; }
-  /* line 100, scss/partials/_base.scss */
-  form button {
-    margin: 20px 0; }
+  .form select option {
+    padding-top: 15px; }
 
-/* line 316, scss/partials/_base.scss */
+/* line 96, scss/partials/_base.scss */
+#result {
+  height: 100vh;
+  margin-top: 75vh;
+  border: solid 2x black;
+  font-size: 100px;
+  background: #444; }
+  /* line 102, scss/partials/_base.scss */
+  #result p {
+    margin: 150px auto;
+    width: 90%; }
+  /* line 106, scss/partials/_base.scss */
+  #result .highlight {
+    color: #CC2200; }
+
+/* line 321, scss/partials/_base.scss */
 [include*="form-input-select()"] {
   display: block;
   padding: 0;
@@ -365,21 +374,21 @@ form {
      The percentage width is a fallback since FF 4+ supports calc() so we can just add a fixed amount of extra width to push the native arrow out of view. We're applying this hack across all FF versions because all the previous hacks were too fragile and complex.
      You might want to consider not using this hack and using the native select arrow in FF. Note this makes the menus wider than the select button because they display at the specified width and aren't clipped. Targeting hack via http://browserhacks.com/#hack-758bff81c5c32351b02e10480b5ed48e */
   /* Show only the native arrow */
-  color: #fff;
+  color: #DDD;
   display: block;
   border-radius: 0;
   box-shadow: none;
   font-size: 80px;
   margin: 15px auto;
   width: 100%; }
-  /* line 112, scss/partials/_base.scss */
+  /* line 117, scss/partials/_base.scss */
   [include*="form-input-select()"]::before, [include*="form-input-select()"]::after {
     content: '';
     display: block;
     position: absolute;
     pointer-events: none;
     z-index: 2; }
-  /* line 122, scss/partials/_base.scss */
+  /* line 127, scss/partials/_base.scss */
   [include*="form-input-select()"] select {
     -webkit-appearance: none;
     appearance: none;
@@ -391,48 +400,48 @@ form {
     font-size: 16px;
     outline: none;
     /* Focus style */ }
-    /* line 134, scss/partials/_base.scss */
+    /* line 139, scss/partials/_base.scss */
     [include*="form-input-select()"] select:focus {
       background-color: transparent;
       outline: none; }
-  /* line 141, scss/partials/_base.scss */
+  /* line 146, scss/partials/_base.scss */
   [include*="form-input-select()"] option {
     font-weight: normal; }
-  /* line 150, scss/partials/_base.scss */
+  /* line 155, scss/partials/_base.scss */
   [include*="form-input-select()"] x:-o-prefocus, [include*="form-input-select()"]::after {
     display: none; }
   @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-    /* line 159, scss/partials/_base.scss */
+    /* line 164, scss/partials/_base.scss */
     [include*="form-input-select()"] select::-ms-expand {
       display: none; }
-    /* line 163, scss/partials/_base.scss */
+    /* line 168, scss/partials/_base.scss */
     [include*="form-input-select()"] select:focus::-ms-value {
       background: transparent;
       color: #000; } }
 
 @-moz-document url-prefix() {
-  /* line 177, scss/partials/_base.scss */
+  /* line 182, scss/partials/_base.scss */
   [include*="form-input-select()"] {
     overflow: hidden; }
-    /* line 180, scss/partials/_base.scss */
+    /* line 185, scss/partials/_base.scss */
     [include*="form-input-select()"] select {
       width: 120%;
       width: -moz-calc(100% + 3em);
       width: calc(100% + 3em);
       /* Firefox focus has odd artifacts around the text, this kills that. See https://developer.mozilla.org/en-US/docs/Web/CSS/:-moz-focusring */ }
       @supports (-moz-appearance: none) {
-        /* line 180, scss/partials/_base.scss */
+        /* line 185, scss/partials/_base.scss */
         [include*="form-input-select()"] select {
           width: 100%; } }
-      /* line 191, scss/partials/_base.scss */
+      /* line 196, scss/partials/_base.scss */
       [include*="form-input-select()"] select:-moz-focusring {
         color: transparent;
         text-shadow: 0 0 0 #000; } }
   @supports (-moz-appearance: none) {
-    /* line 200, scss/partials/_base.scss */
+    /* line 205, scss/partials/_base.scss */
     [include*="form-input-select()"] {
       width: 100%; } }
-  /* line 219, scss/partials/_base.scss */
+  /* line 224, scss/partials/_base.scss */
   [include*="form-input-select()"]::before, [include*="form-input-select()"]::after {
     content: '';
     display: block;
@@ -442,65 +451,65 @@ form {
     width: 0;
     height: 0;
     right: 16px; }
-  /* line 234, scss/partials/_base.scss */
+  /* line 239, scss/partials/_base.scss */
   [include*="form-input-select()"]::before {
     bottom: 55%;
     border-width: 0 6.5px 8px 6.5px;
     border-bottom-color: #fff; }
-  /* line 241, scss/partials/_base.scss */
+  /* line 246, scss/partials/_base.scss */
   [include*="form-input-select()"]::after {
     border-width: 8px 6.5px 0 6.5px;
     border-top-color: #fff;
     top: 55%; }
 
 @-moz-document url-prefix() {
-  /* line 316, scss/partials/_base.scss */
+  /* line 321, scss/partials/_base.scss */
   [include*="form-input-select()"] {
     border-right: 3px solid #fff; }
-    /* line 251, scss/partials/_base.scss */
+    /* line 256, scss/partials/_base.scss */
     [include*="form-input-select()"]:hover {
-      border-right: 3px solid #FF6A67; } }
-  /* line 258, scss/partials/_base.scss */
+      border-right: 3px solid #444; } }
+  /* line 263, scss/partials/_base.scss */
   [include*="form-input-select()"]:hover select {
     box-shadow: 0 2px 3px rgba(0, 91, 166, 0.1) inset;
-    border-color: #FF6A67; }
-    /* line 263, scss/partials/_base.scss */
+    border-color: black; }
+    /* line 268, scss/partials/_base.scss */
     [include*="form-input-select()"]:hover select:focus {
       outline-color: transparent; }
-  /* line 269, scss/partials/_base.scss */
+  /* line 274, scss/partials/_base.scss */
   [include*="form-input-select()"]:hover::before {
-    border-bottom-color: #FF6A67; }
-  /* line 272, scss/partials/_base.scss */
+    border-bottom-color: #444; }
+  /* line 277, scss/partials/_base.scss */
   [include*="form-input-select()"]:hover::after {
-    border-top-color: #FF6A67; }
-  /* line 281, scss/partials/_base.scss */
+    border-top-color: #444; }
+  /* line 286, scss/partials/_base.scss */
   [include*="form-input-select()"] select {
-    height: 100px;
+    height: 180px;
     border: 3px solid #fff;
     border-radius: 0;
-    font-size: 50px;
+    font-size: 80px;
     font-weight: 400;
-    color: inherit;
+    color: #444;
     padding: 11px 15px;
     line-height: normal;
     transition: border-color 0.2s ease, outline 0.2s ease; }
-    /* line 296, scss/partials/_base.scss */
+    /* line 301, scss/partials/_base.scss */
     [include*="form-input-select()"] select:focus {
       box-shadow: 0 3px 4px rgba(255, 255, 255, 0.3) inset;
-      outline: 3px solid #fff;
+      outline: 3px solid black;
       outline-offset: -3px; }
-    /* line 303, scss/partials/_base.scss */
+    /* line 308, scss/partials/_base.scss */
     [include*="form-input-select()"] select[disabled], [include*="form-input-select()"] select:disabled {
       opacity: 0.4;
       cursor: not-allowed; }
-    /* line 309, scss/partials/_base.scss */
+    /* line 314, scss/partials/_base.scss */
     [include*="form-input-select()"] select:invalid {
-      color: #fff; }
+      color: #444; }
 
-/* line 323, scss/partials/_base.scss */
+/* line 328, scss/partials/_base.scss */
 .btn {
   position: relative;
-  width: 100%;
+  width: 75%;
   display: block;
   margin: 30px auto;
   padding: 0;
@@ -509,29 +518,33 @@ form {
   outline: none;
   border-radius: 0px;
   border-color: #fff;
-  background-color: #FF6A67;
+  background-color: #444;
   color: #fff;
   transition: background-color .3s;
   font-weight: 400;
-  font-size: 100px; }
-  /* line 342, scss/partials/_base.scss */
+  font-size: 80px; }
+  /* line 347, scss/partials/_base.scss */
   .btn a {
-    text-decoration: none; }
+    text-decoration: none;
+    color: inherit; }
+    /* line 350, scss/partials/_base.scss */
+    .btn a a:visited {
+      color: inherit; }
 
-/* line 347, scss/partials/_base.scss */
+/* line 356, scss/partials/_base.scss */
 .btn:hover, .btn:focus {
-  background-color: #7B8898; }
+  background-color: #CCC; }
 
-/* line 351, scss/partials/_base.scss */
+/* line 360, scss/partials/_base.scss */
 .btn > * {
   position: relative; }
 
-/* line 355, scss/partials/_base.scss */
+/* line 364, scss/partials/_base.scss */
 .btn span {
   display: block;
   padding: 12px 24px; }
 
-/* line 360, scss/partials/_base.scss */
+/* line 369, scss/partials/_base.scss */
 .btn:before {
   content: "";
   position: absolute;
@@ -547,13 +560,13 @@ form {
   -o-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%); }
 
-/* line 380, scss/partials/_base.scss */
+/* line 389, scss/partials/_base.scss */
 .btn:active:before {
   width: 120%;
   padding-top: 120%;
   transition: width .2s ease-out, padding-top .2s ease-out; }
 
-/* line 387, scss/partials/_base.scss */
+/* line 396, scss/partials/_base.scss */
 #back-btn.span {
   text-decoration: none; }
 

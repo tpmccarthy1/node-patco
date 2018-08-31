@@ -2,9 +2,9 @@ $base-font: 'Roboto', sans-serif;
 $content-width: 100%;
 $breakpoint: 800px;
 $nav-height: 50px;
-$header-background: #FF6A67;
-$main-background: #7B8898;
-$nav-background: #222;
+$header-background: #444;
+$main-background: #CCC;
+$nav-background: #ccc;
 $header-font-color: #fff;
 $link-hover-color: #2581DC;
 
@@ -33,8 +33,6 @@ body{
 	font-family: $base-font;
 }
 
-
-
 // Header
 header {
   background: $header-background;
@@ -56,17 +54,23 @@ header {
 //all pages main content
 
 main{
-	width: 90%;
+	width: 100%;
 	margin: 0 auto;
-	text-align: center;
 	color: #fff;
   font-weight: 200;
 }
 
 //intro paragraph
 .intro{
-  font-size: 50px;
-  padding: 30px 20px 15px 20px;
+  h2{
+    text-decoration: underline;
+    font-weight: 600;
+    padding-bottom: 20px;
+  }
+  text-align: center;
+  font-size: 60px;
+  padding: 50px 50px;
+  color: #444;
 }
 
 .result{
@@ -79,29 +83,30 @@ main{
 }
 
 //container for login and reg forms
-form{
-	width: 100%;
+.form{
+	width: 80%;
 	margin: 0 auto;
 	select{
   option{
 	padding-top: 15px;
   }
 	}
-	form{
-
-		font-size: 20px;
-	}
-	h2{
-		margin: 20px 0;
-	}
-	.password{
-		padding-top: 10px;
-	}
-	button{
-		margin: 20px 0;
-	}
 }
 
+#result{
+  height: 100vh;
+  margin-top: 75vh;
+  border: solid 2x black;
+  font-size: 100px;
+  background: $header-background;
+  p{
+  margin: 150px auto;
+  width: 90%;
+  }
+  .highlight{
+    color: #CC2200;
+  }
+}
 
 //Select form reset mixin
 @mixin _select-form-reset() {
@@ -207,7 +212,7 @@ form{
 // Select style function
 @mixin form-input-select(){
   @include _select-form-reset;
-  color: $header-font-color;
+  color: #DDD;
   display: block;
   border-radius: 0;
   box-shadow: none;
@@ -257,7 +262,7 @@ form{
 
     select {
       box-shadow: 0 2px 3px rgba($demo-blue, 0.1) inset;
-      border-color: $header-background;
+      border-color: black;
 
       // outline is critical but when we are hovering the div has the border already.
       &:focus {
@@ -279,12 +284,12 @@ form{
   // this is mainly for :focus and tabbing.
 
   select {
-    height: 100px;
+    height: 180px;
     border: $border-width solid $header-font-color;
     border-radius: 0;
-    font-size: 50px;
+    font-size: 80px;
     font-weight: 400;
-    color: inherit;
+    color: #444;
     padding: 11px 15px;
     line-height: normal;
     transition: border-color 0.2s ease,
@@ -296,7 +301,7 @@ form{
     &:focus {
       box-shadow: 0 3px 4px rgba($header-font-color, 0.3) inset;
       // outline is critical for usability
-      outline: $border-width solid $header-font-color;
+      outline: $border-width solid black;
       outline-offset: -#{$border-width}; //offset vs width
     }
 
@@ -307,7 +312,7 @@ form{
 
     // we use invalid like a placeholder
     &:invalid {
-      color: $header-font-color;
+      color: #444;
     } 
   }
 }
@@ -322,7 +327,7 @@ form{
 
 .btn {
   position: relative;
-  width: 100%;
+  width: 75%;
   display: block;
   margin: 30px auto;
   padding: 0;
@@ -338,9 +343,13 @@ form{
   
   transition: background-color .3s;
   font-weight: 400;
-  font-size: 100px;
+  font-size: 80px;
   a{
     text-decoration: none;
+    color: inherit;
+    a:visited{
+      color: inherit;
+    }
   }
 }
 
