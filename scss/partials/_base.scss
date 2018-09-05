@@ -17,12 +17,13 @@ body {
 //Base navbar styles
 
 .navbar {
-  font-size: 18px;
+  font-size: 60px;
   background-image: linear-gradient(260deg, #59AF79 0%, #83D455 100%); 
   border: 1px solid rgba(0,0,0,0.2);
   padding-bottom: 10px;
   h1{
     color: #fff;
+    font-size: 85px;
   }
 }
 
@@ -55,8 +56,8 @@ body {
   top: 10px;
   right: 20px;
   cursor: pointer; 
-  color: $base-font-color;
-  font-size: 24px;
+  color: #fff;
+  font-size: 60px;
 }
 
 //Main section
@@ -107,19 +108,19 @@ body {
 .select{
   margin: 30px auto;
   width: 80%;
-  padding-top: 60px;
+  padding-top: 100px;
   .nice-select{
     width: 100%;
-    line-height: 60px;
-    height: 60px;
+    line-height: 90px;
+    height: 90px;
     .current{
     text-align: center;
-    font-size: 50px;  
+    font-size: 85px;  
     }
   }
   h2{
-    font-size: 40px;
-    padding-bottom: 20px;
+    font-size: 80px;
+    padding-bottom: 40px;
 
   }
 
@@ -135,17 +136,17 @@ body {
 }
 
 .btn{
-  margin: 30px auto;
-  padding-top: 30px;
+  margin: 60px auto;
+  padding-top: 90px;
 
   button{
     display: flex;
     justify-content: center;
     background: #fff;
     box-shadow: none;
-    font-size: 40px;
-    min-width: 110px;
-    padding: 10px 15px 12px;
+    font-size: 85px;
+    min-width: 200px;
+    padding: 30px 45px 36px;
     border-radius: 3px;
     box-shadow: inset 0 -1px 0 1px rgba(0,0,0,.1), inset 0 -10px 20px rgba(0,0,0,.1);
     cursor: pointer;
@@ -168,7 +169,7 @@ body {
   border-radius: 5px;
   color: $base-font-color;
   font-weight: 200;
-  font-size: 50px;
+  font-size: 80px;
   p{
     text-align: center;
     padding: 10px;

@@ -210,31 +210,32 @@ body {
 
 /* line 19, scss/partials/_base.scss */
 .navbar {
-  font-size: 18px;
+  font-size: 60px;
   background-image: linear-gradient(260deg, #59AF79 0%, #83D455 100%);
   border: 1px solid rgba(0, 0, 0, 0.2);
   padding-bottom: 10px; }
   /* line 24, scss/partials/_base.scss */
   .navbar h1 {
-    color: #fff; }
+    color: #fff;
+    font-size: 85px; }
 
-/* line 29, scss/partials/_base.scss */
+/* line 30, scss/partials/_base.scss */
 #main-nav {
   list-style-type: none;
   display: none;
   flex-direction: column; }
 
-/* line 35, scss/partials/_base.scss */
+/* line 36, scss/partials/_base.scss */
 .nav-links, #logo {
   text-decoration: none;
   color: #333640; }
 
-/* line 40, scss/partials/_base.scss */
+/* line 41, scss/partials/_base.scss */
 #main-nav li {
   text-align: center;
   margin: 15px auto; }
 
-/* line 45, scss/partials/_base.scss */
+/* line 46, scss/partials/_base.scss */
 #logo {
   color: #E1E7EB;
   display: inline-block;
@@ -242,16 +243,16 @@ body {
   margin-top: 10px;
   margin-left: 20px; }
 
-/* line 53, scss/partials/_base.scss */
+/* line 54, scss/partials/_base.scss */
 #navbar-toggle {
   position: absolute;
   top: 10px;
   right: 20px;
   cursor: pointer;
-  color: #333640;
-  font-size: 24px; }
+  color: #fff;
+  font-size: 60px; }
 
-/* line 64, scss/partials/_base.scss */
+/* line 65, scss/partials/_base.scss */
 .app {
   /**
    * Lay out the children of this container with
@@ -280,60 +281,60 @@ body {
   min-height: 300px;
   padding: 10px; }
 
-/* line 98, scss/partials/_base.scss */
+/* line 99, scss/partials/_base.scss */
 .input {
   width: 100%; }
-  /* line 100, scss/partials/_base.scss */
+  /* line 101, scss/partials/_base.scss */
   .input ul {
     justify-content: center; }
 
-/* line 107, scss/partials/_base.scss */
+/* line 108, scss/partials/_base.scss */
 .select {
   margin: 30px auto;
   width: 80%;
-  padding-top: 60px; }
-  /* line 111, scss/partials/_base.scss */
+  padding-top: 100px; }
+  /* line 112, scss/partials/_base.scss */
   .select .nice-select {
     width: 100%;
-    line-height: 60px;
-    height: 60px; }
-    /* line 115, scss/partials/_base.scss */
+    line-height: 90px;
+    height: 90px; }
+    /* line 116, scss/partials/_base.scss */
     .select .nice-select .current {
       text-align: center;
-      font-size: 50px; }
-  /* line 120, scss/partials/_base.scss */
+      font-size: 85px; }
+  /* line 121, scss/partials/_base.scss */
   .select h2 {
-    font-size: 40px;
-    padding-bottom: 20px; }
+    font-size: 80px;
+    padding-bottom: 40px; }
 
-/* line 129, scss/partials/_base.scss */
+/* line 130, scss/partials/_base.scss */
 .list {
   width: 100%; }
 
-/* line 137, scss/partials/_base.scss */
+/* line 138, scss/partials/_base.scss */
 .btn {
-  margin: 30px auto;
-  padding-top: 30px; }
-  /* line 141, scss/partials/_base.scss */
+  margin: 60px auto;
+  padding-top: 90px; }
+  /* line 142, scss/partials/_base.scss */
   .btn button {
     display: flex;
     justify-content: center;
     background: #fff;
     box-shadow: none;
-    font-size: 40px;
-    min-width: 110px;
-    padding: 10px 15px 12px;
+    font-size: 85px;
+    min-width: 200px;
+    padding: 30px 45px 36px;
     border-radius: 3px;
     box-shadow: inset 0 -1px 0 1px rgba(0, 0, 0, 0.1), inset 0 -10px 20px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     outline: none;
     transition: background 1s, color .5s; }
-    /* line 154, scss/partials/_base.scss */
+    /* line 155, scss/partials/_base.scss */
     .btn button:hover {
       background: #83D455;
       color: #fff; }
 
-/* line 163, scss/partials/_base.scss */
+/* line 164, scss/partials/_base.scss */
 #result {
   display: none;
   background: #fff;
@@ -342,41 +343,11 @@ body {
   border-radius: 5px;
   color: #333640;
   font-weight: 200;
-  font-size: 50px; }
-  /* line 172, scss/partials/_base.scss */
+  font-size: 80px; }
+  /* line 173, scss/partials/_base.scss */
   #result p {
     text-align: center;
     padding: 10px; }
-
-@media only screen and (min-width: 768px) {
-  /* line 3, scss/partials/_768up.scss */
-  .navbar {
-    display: flex;
-    justify-content: space-between;
-    padding-bottom: 0;
-    height: 70px;
-    align-items: center; }
-  /* line 11, scss/partials/_768up.scss */
-  #main-nav {
-    display: flex !important;
-    margin-right: 30px;
-    flex-direction: row;
-    justify-content: flex-end; }
-  /* line 18, scss/partials/_768up.scss */
-  #main-nav li {
-    margin: 0; }
-  /* line 22, scss/partials/_768up.scss */
-  .nav-links {
-    margin-left: 40px; }
-  /* line 26, scss/partials/_768up.scss */
-  #logo {
-    margin-top: 0; }
-  /* line 30, scss/partials/_768up.scss */
-  #navbar-toggle {
-    display: none; }
-  /* line 34, scss/partials/_768up.scss */
-  #logo:hover, .nav-links:hover {
-    color: #E1E7EB; } }
 
 @media only screen and (min-width: 1030px) {
   /* line 1, scss/partials/_1030up.scss */
