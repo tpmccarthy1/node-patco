@@ -3,29 +3,45 @@
   <head>
     <title>Patco</title>
     <link rel='stylesheet' href='/stylesheets/main.css' />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <script src="https://use.fontawesome.com/6459e82c19.js"></script>
+
+    <!-- the below three lines are a fix to get HTML5 semantic elements working in old versions of Internet Explorer-->
+    <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+    <![endif]-->
+
   </head>
-  <body id="top">
+  <body>
 
-  	<header> 		
-  		<h1>Next PATCO</h1>
-  	</header>
+  	<nav class="navbar"> 		
+  		<!-- Hamburger toggle -->
+  		<span id="navbar-toggle">
+            <i class="fas fa-bars"></i>
+        </span>
+
+        <a href="#" id="logo"><h1>NextPATCO</h1></a>
+
+        <ul id="main-nav">
+            <li>
+                <a href="#" class="nav-links">Next Patco</a>
+            </li>
+            <li>
+                <a href="#" class="nav-links">Search By Time</a>
+            </li>
+            <li>
+                <a href="#" class="nav-links">View all Times</a>
+            </li>
+        </ul>
+    </nav>
   	
-  	<main class="m-all t-all d-all">
+  	<main class="app">
 
-  		<div class="intro m-all t-all d-2of3">
- 		<h2>Instructions</h2>
- 		<ol>
- 			<li>1. Choose a station</li>
- 			<li>2. Pick a direction</li>
- 			<li>3. Click Get Times</li>
- 		</ol>
-  		</div>
-
-  		<div class="m-all t-all d-2of3">
-	    	 <ul class="form">
-	    	 	<li include="form-input-select()">
-	    	 		<select required name="station" id="station" >
-		                <option value="" class="placeholder" hidden>Choose a station...</option>
+  		<div class="input">
+	    	 <ul>
+	    	 	<li class="select">
+	    	 		<h2>Choose a station...</h2>
+	    	 		<select required name="station" id="station">
 		                <option value="1">Lindenwold</option>
 		                <option value="2">Ashland</option>
 		                <option value="3">Woodcrest</option>
@@ -41,24 +57,34 @@
 		                <option value="13">15/16 & Locust</option>
 	              	</select>
 	              </li>
-	              <li include="form-input-select()">
-	    	 		<select required name="direction" id="direction" >
-	    	 			<option value="" class="placeholder" hidden>Choose a direction..</option>
+
+	              <li class="select">
+	              	<h2>Choose a direction..</h2>
+	    	 		<select required name="direction" id="direction">
 		                <option value="2">Westbound</option>    
 		                <option value="1">Eastbound</option>
 	              	</select>
 	              </li>
+	    	
+	    	 <li class="btn">
+				<button type="submit" id="submit-btn" class="btn"><span>Get Time</span></button>
+	    	 </li>
+	    	
 	    	 </ul>
-	    	 <button type="submit" id="submit-btn" class="btn"><span><a href="#result">Get Time</a></span></button></td>
 	    </div>
 	
-	    <div id="result" class="m-all t-all d-1of3">
+	    <div id="result" class="">
 	    	
 
 	    </div>
 
 	</main>
+
+	<footer>
+		<p></p>
+	</footer>
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="/javascripts/main.js"></script>
+	<script type="text/javascript" src="/javascripts/select.js"></script>
   </body>
 </html>

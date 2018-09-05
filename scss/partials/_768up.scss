@@ -1,50 +1,36 @@
-header{
+//Desktop navbar styles
 
-	
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 0;
+  height: 70px;
+  align-items: center;
 }
 
-#app{
-
+#main-nav {
+  display: flex !important;
+  margin-right: 30px;
+  flex-direction: row;
+  justify-content: flex-end;
 }
 
-.components{
-
+#main-nav li {
+  margin: 0;
 }
 
-.tuner{
-	
+.nav-links {
+  margin-left: 40px;
 }
 
-.string{
-
-	h3{
-		
-	}
-	li{
-	font-size: 1em;
-	text-align: center;
-
-		
-	}
-	.notebox{
-	}
-	.submit{
-
-	}
-
+#logo { 
+  margin-top: 0;
 }
 
-.options{
-
-	
+#navbar-toggle {
+   display: none;
 }
 
-.volume{
-
-}
-
-footer{
-	h2{
-	
-	}
+#logo:hover, .nav-links:hover {
+  color: $highlight-color;
 }

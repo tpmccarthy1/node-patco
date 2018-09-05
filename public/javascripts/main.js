@@ -1,4 +1,6 @@
-$(document).ready(function(){
+/**
+* AJAX Calls
+**/
 
 function ajaxBtn(){
 	var btn = document.querySelector('#submit-btn');
@@ -12,8 +14,6 @@ function submit(){
 	var direction = document.querySelector('#direction').value;
 
 	var data = url + '?station=' + station + '&direction=' + direction;
-
-	console.log(data);
 
 	//Create a new AJAX request object
 	var request = new XMLHttpRequest();
@@ -36,25 +36,48 @@ function handleResponse(){
 
 	//If there wasn't an error, round showReponse function
 	if(request.status == 200){
-
-		var ajaxResponse = request.responseText;
-
+		var ajaxResponse = JSON.parse(request.responseText);
 		showResponse(ajaxResponse);
 	}
 }
 
 function showResponse(ajaxResponse){
-
 	var responseContainer = document.querySelector('#result');
-
-	responseContainer.innerHTML = ajaxResponse;
+	responseContainer.innerHTML = "<p>The next train departing from " + ajaxResponse.stopName + " is at " + ajaxResponse.result[0] + ".</p>";
+  //show response container
+  responseContainer.setAttribute("style", "display: flex;");
 }
 
 
 ajaxBtn();
 
 
+//Navbar stuff
+
+let mainNav=document.getElementById('main-nav');
+let navbarToggle=document.getElementById('navbar-toggle');
+
+navbarToggle.addEventListener('click',function(){
+
+    if(this.classList.contains('active')){
+        mainNav.style.display="none";
+        this.classList.remove('active');
+    }
+    else{
+        mainNav.style.display="flex";
+        this.classList.add('active');
+
+    }
+});
+
+
 //Scroll to 
+
+
+$(document).ready(function(){
+
+//Init nice select
+$('select').niceSelect();
 
 // Select all links with hashes
 $('a[href*="#"]')

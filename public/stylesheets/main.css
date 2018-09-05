@@ -1,12 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700");
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700");
-@font-face {
-  font-family: 'StateFaceRegular';
-  src: url("../fonts/stateface-regular-webfont.eot");
-  src: url("../fonts/stateface-regular-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/stateface-regular-webfont.woff") format("woff"), url("../fonts/stateface-regular-webfont.ttf") format("truetype"), url("../fonts/stateface-regular-webfont.svg#StateFaceRegular") format("svg");
-  font-weight: normal;
-  font-style: normal; }
-
 /* Eric Meyer's CSS Reset
    http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
@@ -63,518 +56,327 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-/******************************************************************
+/* line 18, scss/partials/nice-select.scss */
+.nice-select {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  background-color: #fff;
+  border-radius: 5px;
+  border: solid 1px #e8e8e8;
+  box-sizing: border-box;
+  clear: both;
+  cursor: pointer;
+  display: block;
+  float: left;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: normal;
+  height: 42px;
+  line-height: 40px;
+  outline: none;
+  padding-left: 18px;
+  padding-right: 30px;
+  position: relative;
+  text-align: left !important;
+  transition: all 0.2s ease-in-out;
+  user-select: none;
+  white-space: nowrap;
+  width: auto; }
+  /* line 42, scss/partials/nice-select.scss */
+  .nice-select:hover {
+    border-color: #dbdbdb; }
+  /* line 45, scss/partials/nice-select.scss */
+  .nice-select:active, .nice-select.open, .nice-select:focus {
+    border-color: #999; }
+  /* line 49, scss/partials/nice-select.scss */
+  .nice-select:after {
+    border-bottom: 2px solid #999;
+    border-right: 2px solid #999;
+    content: '';
+    display: block;
+    height: 5px;
+    margin-top: -4px;
+    pointer-events: none;
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform-origin: 66% 66%;
+    transform: rotate(45deg);
+    transition: all 0.15s ease-in-out;
+    width: 5px; }
+  /* line 68, scss/partials/nice-select.scss */
+  .nice-select.open:after {
+    transform: rotate(-135deg); }
+  /* line 71, scss/partials/nice-select.scss */
+  .nice-select.open .list {
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1) translateY(0); }
+  /* line 77, scss/partials/nice-select.scss */
+  .nice-select.disabled {
+    border-color: #ededed;
+    color: #999;
+    pointer-events: none; }
+    /* line 81, scss/partials/nice-select.scss */
+    .nice-select.disabled:after {
+      border-color: #cccccc; }
+  /* line 87, scss/partials/nice-select.scss */
+  .nice-select.wide {
+    width: 100%; }
+    /* line 89, scss/partials/nice-select.scss */
+    .nice-select.wide .list {
+      left: 0 !important;
+      right: 0 !important; }
+  /* line 94, scss/partials/nice-select.scss */
+  .nice-select.right {
+    float: right; }
+    /* line 96, scss/partials/nice-select.scss */
+    .nice-select.right .list {
+      left: auto;
+      right: 0; }
+  /* line 101, scss/partials/nice-select.scss */
+  .nice-select.small {
+    font-size: 12px;
+    height: 36px;
+    line-height: 34px; }
+    /* line 105, scss/partials/nice-select.scss */
+    .nice-select.small:after {
+      height: 4px;
+      width: 4px; }
+    /* line 109, scss/partials/nice-select.scss */
+    .nice-select.small .option {
+      line-height: 34px;
+      min-height: 34px; }
+  /* line 116, scss/partials/nice-select.scss */
+  .nice-select .list {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 0 1px rgba(68, 68, 68, 0.11);
+    box-sizing: border-box;
+    margin-top: 4px;
+    opacity: 0;
+    overflow: hidden;
+    padding: 0;
+    pointer-events: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    transform-origin: 50% 0;
+    transform: scale(0.75) translateY(-21px);
+    transition: all 0.2s cubic-bezier(0.5, 0, 0, 1.25), opacity 0.15s ease-out;
+    z-index: 9; }
+    /* line 132, scss/partials/nice-select.scss */
+    .nice-select .list:hover .option:not(:hover) {
+      background-color: transparent !important; }
+  /* line 136, scss/partials/nice-select.scss */
+  .nice-select .option {
+    cursor: pointer;
+    font-weight: 400;
+    line-height: 40px;
+    list-style: none;
+    min-height: 40px;
+    outline: none;
+    padding-left: 18px;
+    padding-right: 29px;
+    text-align: left;
+    transition: all 0.2s; }
+    /* line 147, scss/partials/nice-select.scss */
+    .nice-select .option:hover, .nice-select .option.focus, .nice-select .option.selected.focus {
+      background-color: #f6f6f6; }
+    /* line 150, scss/partials/nice-select.scss */
+    .nice-select .option.selected {
+      font-weight: bold; }
+    /* line 153, scss/partials/nice-select.scss */
+    .nice-select .option.disabled {
+      background-color: transparent;
+      color: #999;
+      cursor: default; }
 
-Stylesheet: Grid Stylesheet
+/* line 163, scss/partials/nice-select.scss */
+.no-csspointerevents .nice-select .list {
+  display: none; }
 
-******************************************************************/
-/* line 15, scss/partials/_grid.scss */
-.last-col {
-  float: right;
-  padding-right: 0 !important; }
+/* line 167, scss/partials/nice-select.scss */
+.no-csspointerevents .nice-select.open .list {
+  display: block; }
 
-/*
-Mobile Grid Styles
-These are the widths for the mobile grid.
-There are four types, but you can add or customize
-them however you see fit.
-*/
-@media (max-width: 767px) {
-  /* line 29, scss/partials/_grid.scss */
-  .m-all {
-    float: left;
-    padding-right: 0.75em;
-    width: 100%;
-    padding-right: 0; }
-  /* line 35, scss/partials/_grid.scss */
-  .m-1of2 {
-    float: left;
-    padding-right: 0.75em;
-    width: 50%; }
-  /* line 40, scss/partials/_grid.scss */
-  .m-1of3 {
-    float: left;
-    padding-right: 0.75em;
-    width: 33.33%; }
-  /* line 45, scss/partials/_grid.scss */
-  .m-2of3 {
-    float: left;
-    padding-right: 0.75em;
-    width: 66.66%; }
-  /* line 50, scss/partials/_grid.scss */
-  .m-1of4 {
-    float: left;
-    padding-right: 0.75em;
-    width: 25%; }
-  /* line 55, scss/partials/_grid.scss */
-  .m-3of4 {
-    float: left;
-    padding-right: 0.75em;
-    width: 75%; } }
-
-/* Portrait tablet to landscape */
-@media (min-width: 768px) and (max-width: 1029px) {
-  /* line 66, scss/partials/_grid.scss */
-  .t-all {
-    float: left;
-    padding-right: 0.75em;
-    width: 100%;
-    padding-right: 0; }
-  /* line 72, scss/partials/_grid.scss */
-  .t-1of2 {
-    float: left;
-    padding-right: 0.75em;
-    width: 50%; }
-  /* line 77, scss/partials/_grid.scss */
-  .t-1of3 {
-    float: left;
-    padding-right: 0.75em;
-    width: 33.33%; }
-  /* line 82, scss/partials/_grid.scss */
-  .t-2of3 {
-    float: left;
-    padding-right: 0.75em;
-    width: 66.66%; }
-  /* line 87, scss/partials/_grid.scss */
-  .t-1of4 {
-    float: left;
-    padding-right: 0.75em;
-    width: 25%; }
-  /* line 92, scss/partials/_grid.scss */
-  .t-3of4 {
-    float: left;
-    padding-right: 0.75em;
-    width: 75%; }
-  /* line 97, scss/partials/_grid.scss */
-  .t-1of5 {
-    float: left;
-    padding-right: 0.75em;
-    width: 20%; }
-  /* line 102, scss/partials/_grid.scss */
-  .t-2of5 {
-    float: left;
-    padding-right: 0.75em;
-    width: 40%; }
-  /* line 107, scss/partials/_grid.scss */
-  .t-3of5 {
-    float: left;
-    padding-right: 0.75em;
-    width: 60%; }
-  /* line 112, scss/partials/_grid.scss */
-  .t-4of5 {
-    float: left;
-    padding-right: 0.75em;
-    width: 80%; } }
-
-/* Landscape to small desktop */
-@media (min-width: 1030px) {
-  /* line 122, scss/partials/_grid.scss */
-  .d-all {
-    float: left;
-    padding-right: 0.75em;
-    width: 100%;
-    padding-right: 0; }
-  /* line 128, scss/partials/_grid.scss */
-  .d-1of2 {
-    float: left;
-    padding-right: 0.75em;
-    width: 50%; }
-  /* line 133, scss/partials/_grid.scss */
-  .d-1of3 {
-    float: left;
-    padding-right: 0.75em;
-    width: 33.33%; }
-  /* line 138, scss/partials/_grid.scss */
-  .d-2of3 {
-    float: left;
-    padding-right: 0.75em;
-    width: 66.66%; }
-  /* line 143, scss/partials/_grid.scss */
-  .d-1of4 {
-    float: left;
-    padding-right: 0.75em;
-    width: 25%; }
-  /* line 148, scss/partials/_grid.scss */
-  .d-3of4 {
-    float: left;
-    padding-right: 0.75em;
-    width: 75%; }
-  /* line 153, scss/partials/_grid.scss */
-  .d-1of5 {
-    float: left;
-    padding-right: 0.75em;
-    width: 20%; }
-  /* line 158, scss/partials/_grid.scss */
-  .d-2of5 {
-    float: left;
-    padding-right: 0.75em;
-    width: 40%; }
-  /* line 163, scss/partials/_grid.scss */
-  .d-3of5 {
-    float: left;
-    padding-right: 0.75em;
-    width: 60%; }
-  /* line 168, scss/partials/_grid.scss */
-  .d-4of5 {
-    float: left;
-    padding-right: 0.75em;
-    width: 80%; }
-  /* line 173, scss/partials/_grid.scss */
-  .d-1of6 {
-    float: left;
-    padding-right: 0.75em;
-    width: 16.6666666667%; }
-  /* line 178, scss/partials/_grid.scss */
-  .d-1of7 {
-    float: left;
-    padding-right: 0.75em;
-    width: 14.2857142857%; }
-  /* line 183, scss/partials/_grid.scss */
-  .d-2of7 {
-    float: left;
-    padding-right: 0.75em;
-    width: 28.5714286%; }
-  /* line 188, scss/partials/_grid.scss */
-  .d-3of7 {
-    float: left;
-    padding-right: 0.75em;
-    width: 42.8571429%; }
-  /* line 193, scss/partials/_grid.scss */
-  .d-4of7 {
-    float: left;
-    padding-right: 0.75em;
-    width: 57.1428572%; }
-  /* line 198, scss/partials/_grid.scss */
-  .d-5of7 {
-    float: left;
-    padding-right: 0.75em;
-    width: 71.4285715%; }
-  /* line 203, scss/partials/_grid.scss */
-  .d-6of7 {
-    float: left;
-    padding-right: 0.75em;
-    width: 85.7142857%; }
-  /* line 208, scss/partials/_grid.scss */
-  .d-1of8 {
-    float: left;
-    padding-right: 0.75em;
-    width: 12.5%; }
-  /* line 213, scss/partials/_grid.scss */
-  .d-1of9 {
-    float: left;
-    padding-right: 0.75em;
-    width: 11.1111111111%; }
-  /* line 218, scss/partials/_grid.scss */
-  .d-1of10 {
-    float: left;
-    padding-right: 0.75em;
-    width: 10%; }
-  /* line 223, scss/partials/_grid.scss */
-  .d-1of11 {
-    float: left;
-    padding-right: 0.75em;
-    width: 9.09090909091%; }
-  /* line 228, scss/partials/_grid.scss */
-  .d-1of12 {
-    float: left;
-    padding-right: 0.75em;
-    width: 8.33%; } }
-
-/* line 22, scss/partials/_base.scss */
-html {
+/* line 8, scss/partials/_base.scss */
+* {
   box-sizing: border-box; }
 
-/* line 25, scss/partials/_base.scss */
-*, *:before, *:after {
-  box-sizing: inherit; }
-
-/* line 30, scss/partials/_base.scss */
+/* line 12, scss/partials/_base.scss */
 body {
-  height: 100%;
-  background: #CCC;
-  font-family: "Roboto", sans-serif; }
+  font-family: "Roboto", sans-serif;
+  background: #E1E7EB; }
 
-/* line 37, scss/partials/_base.scss */
-header {
-  background: #444; }
-  /* line 39, scss/partials/_base.scss */
-  header h1 {
-    color: #fff;
-    padding: 20px;
-    text-align: center;
-    text-transform: uppercase;
-    font-size: 95px; }
-  /* line 46, scss/partials/_base.scss */
-  header a,
-  header a:visited {
-    color: #fff;
-    text-decoration: none; }
+/* line 19, scss/partials/_base.scss */
+.navbar {
+  font-size: 18px;
+  background-image: linear-gradient(260deg, #59AF79 0%, #83D455 100%);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding-bottom: 10px; }
+  /* line 24, scss/partials/_base.scss */
+  .navbar h1 {
+    color: #fff; }
 
-/* line 56, scss/partials/_base.scss */
-main {
-  width: 100%;
-  margin: 0 auto;
-  color: #fff;
-  font-weight: 200; }
+/* line 29, scss/partials/_base.scss */
+#main-nav {
+  list-style-type: none;
+  display: none;
+  flex-direction: column; }
+
+/* line 35, scss/partials/_base.scss */
+.nav-links, #logo {
+  text-decoration: none;
+  color: #333640; }
+
+/* line 40, scss/partials/_base.scss */
+#main-nav li {
+  text-align: center;
+  margin: 15px auto; }
+
+/* line 45, scss/partials/_base.scss */
+#logo {
+  color: #E1E7EB;
+  display: inline-block;
+  font-size: 50px;
+  margin-top: 10px;
+  margin-left: 20px; }
+
+/* line 53, scss/partials/_base.scss */
+#navbar-toggle {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  cursor: pointer;
+  color: #333640;
+  font-size: 24px; }
 
 /* line 64, scss/partials/_base.scss */
-.intro {
-  text-align: center;
-  font-size: 60px;
-  padding: 50px 50px;
-  color: #444; }
-  /* line 65, scss/partials/_base.scss */
-  .intro h2 {
-    text-decoration: underline;
-    font-weight: 600;
+.app {
+  /**
+   * Lay out the children of this container with
+   * flexbox.
+   */
+  display: flex;
+  /**
+   * Rotate the main axis so that the children
+   * are laid out vertically, the same as in the
+   * above "Side bar" example.
+   */
+  flex-direction: column;
+  /**
+   * Instead of pushing the children apart, as in
+   * previous examples, we will group them together
+   * in the center of their container.
+   */
+  justify-content: center;
+  /**
+   * Align the children in the center, along
+   * the main axis. Because the direction is
+   * "column" this has a similar effect as setting
+   * text-align: center.
+   */
+  align-items: center;
+  min-height: 300px;
+  padding: 10px; }
+
+/* line 98, scss/partials/_base.scss */
+.input {
+  width: 100%; }
+  /* line 100, scss/partials/_base.scss */
+  .input ul {
+    justify-content: center; }
+
+/* line 107, scss/partials/_base.scss */
+.select {
+  margin: 30px auto;
+  width: 80%;
+  padding-top: 60px; }
+  /* line 111, scss/partials/_base.scss */
+  .select .nice-select {
+    width: 100%;
+    line-height: 60px;
+    height: 60px; }
+    /* line 115, scss/partials/_base.scss */
+    .select .nice-select .current {
+      text-align: center;
+      font-size: 50px; }
+  /* line 120, scss/partials/_base.scss */
+  .select h2 {
+    font-size: 40px;
     padding-bottom: 20px; }
 
-/* line 76, scss/partials/_base.scss */
-.result {
-  padding-top: 30px;
-  font-size: 50px; }
-  /* line 79, scss/partials/_base.scss */
-  .result .highlight {
-    color: #444;
-    font-weight: 400; }
-
-/* line 86, scss/partials/_base.scss */
-.form {
-  width: 80%;
-  margin: 0 auto; }
-  /* line 90, scss/partials/_base.scss */
-  .form select option {
-    padding-top: 15px; }
-
-/* line 96, scss/partials/_base.scss */
-#result {
-  height: 100vh;
-  margin-top: 75vh;
-  border: solid 2x black;
-  font-size: 100px;
-  background: #444; }
-  /* line 102, scss/partials/_base.scss */
-  #result p {
-    margin: 150px auto;
-    width: 90%; }
-  /* line 106, scss/partials/_base.scss */
-  #result .highlight {
-    color: #CC2200; }
-
-/* line 321, scss/partials/_base.scss */
-[include*="form-input-select()"] {
-  display: block;
-  padding: 0;
-  position: relative;
-  /* Set options to normal weight */
-  /* ------------------------------------  */
-  /* START OF UGLY BROWSER-SPECIFIC HACKS */
-  /* ----------------------------------  */
-  /* FIREFOX won't let us hide the native select arrow, so we have to make it wider than needed and clip it via overflow on the parent container.
-     The percentage width is a fallback since FF 4+ supports calc() so we can just add a fixed amount of extra width to push the native arrow out of view. We're applying this hack across all FF versions because all the previous hacks were too fragile and complex.
-     You might want to consider not using this hack and using the native select arrow in FF. Note this makes the menus wider than the select button because they display at the specified width and aren't clipped. Targeting hack via http://browserhacks.com/#hack-758bff81c5c32351b02e10480b5ed48e */
-  /* Show only the native arrow */
-  color: #DDD;
-  display: block;
-  border-radius: 0;
-  box-shadow: none;
-  font-size: 80px;
-  margin: 15px auto;
+/* line 129, scss/partials/_base.scss */
+.list {
   width: 100%; }
-  /* line 117, scss/partials/_base.scss */
-  [include*="form-input-select()"]::before, [include*="form-input-select()"]::after {
-    content: '';
-    display: block;
-    position: absolute;
-    pointer-events: none;
-    z-index: 2; }
-  /* line 127, scss/partials/_base.scss */
-  [include*="form-input-select()"] select {
-    -webkit-appearance: none;
-    appearance: none;
-    background: none;
-    box-sizing: border-box;
-    width: 100%;
-    margin: 0;
-    border: 1px solid transparent;
-    font-size: 16px;
-    outline: none;
-    /* Focus style */ }
-    /* line 139, scss/partials/_base.scss */
-    [include*="form-input-select()"] select:focus {
-      background-color: transparent;
-      outline: none; }
-  /* line 146, scss/partials/_base.scss */
-  [include*="form-input-select()"] option {
-    font-weight: normal; }
-  /* line 155, scss/partials/_base.scss */
-  [include*="form-input-select()"] x:-o-prefocus, [include*="form-input-select()"]::after {
-    display: none; }
-  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-    /* line 164, scss/partials/_base.scss */
-    [include*="form-input-select()"] select::-ms-expand {
-      display: none; }
-    /* line 168, scss/partials/_base.scss */
-    [include*="form-input-select()"] select:focus::-ms-value {
-      background: transparent;
-      color: #000; } }
 
-@-moz-document url-prefix() {
-  /* line 182, scss/partials/_base.scss */
-  [include*="form-input-select()"] {
-    overflow: hidden; }
-    /* line 185, scss/partials/_base.scss */
-    [include*="form-input-select()"] select {
-      width: 120%;
-      width: -moz-calc(100% + 3em);
-      width: calc(100% + 3em);
-      /* Firefox focus has odd artifacts around the text, this kills that. See https://developer.mozilla.org/en-US/docs/Web/CSS/:-moz-focusring */ }
-      @supports (-moz-appearance: none) {
-        /* line 185, scss/partials/_base.scss */
-        [include*="form-input-select()"] select {
-          width: 100%; } }
-      /* line 196, scss/partials/_base.scss */
-      [include*="form-input-select()"] select:-moz-focusring {
-        color: transparent;
-        text-shadow: 0 0 0 #000; } }
-  @supports (-moz-appearance: none) {
-    /* line 205, scss/partials/_base.scss */
-    [include*="form-input-select()"] {
-      width: 100%; } }
-  /* line 224, scss/partials/_base.scss */
-  [include*="form-input-select()"]::before, [include*="form-input-select()"]::after {
-    content: '';
-    display: block;
-    position: absolute;
-    pointer-events: none;
-    border: 1px solid transparent;
-    width: 0;
-    height: 0;
-    right: 16px; }
-  /* line 239, scss/partials/_base.scss */
-  [include*="form-input-select()"]::before {
-    bottom: 55%;
-    border-width: 0 6.5px 8px 6.5px;
-    border-bottom-color: #fff; }
-  /* line 246, scss/partials/_base.scss */
-  [include*="form-input-select()"]::after {
-    border-width: 8px 6.5px 0 6.5px;
-    border-top-color: #fff;
-    top: 55%; }
-
-@-moz-document url-prefix() {
-  /* line 321, scss/partials/_base.scss */
-  [include*="form-input-select()"] {
-    border-right: 3px solid #fff; }
-    /* line 256, scss/partials/_base.scss */
-    [include*="form-input-select()"]:hover {
-      border-right: 3px solid #444; } }
-  /* line 263, scss/partials/_base.scss */
-  [include*="form-input-select()"]:hover select {
-    box-shadow: 0 2px 3px rgba(0, 91, 166, 0.1) inset;
-    border-color: black; }
-    /* line 268, scss/partials/_base.scss */
-    [include*="form-input-select()"]:hover select:focus {
-      outline-color: transparent; }
-  /* line 274, scss/partials/_base.scss */
-  [include*="form-input-select()"]:hover::before {
-    border-bottom-color: #444; }
-  /* line 277, scss/partials/_base.scss */
-  [include*="form-input-select()"]:hover::after {
-    border-top-color: #444; }
-  /* line 286, scss/partials/_base.scss */
-  [include*="form-input-select()"] select {
-    height: 180px;
-    border: 3px solid #fff;
-    border-radius: 0;
-    font-size: 80px;
-    font-weight: 400;
-    color: #444;
-    padding: 11px 15px;
-    line-height: normal;
-    transition: border-color 0.2s ease, outline 0.2s ease; }
-    /* line 301, scss/partials/_base.scss */
-    [include*="form-input-select()"] select:focus {
-      box-shadow: 0 3px 4px rgba(255, 255, 255, 0.3) inset;
-      outline: 3px solid black;
-      outline-offset: -3px; }
-    /* line 308, scss/partials/_base.scss */
-    [include*="form-input-select()"] select[disabled], [include*="form-input-select()"] select:disabled {
-      opacity: 0.4;
-      cursor: not-allowed; }
-    /* line 314, scss/partials/_base.scss */
-    [include*="form-input-select()"] select:invalid {
-      color: #444; }
-
-/* line 328, scss/partials/_base.scss */
+/* line 137, scss/partials/_base.scss */
 .btn {
-  position: relative;
-  width: 75%;
-  display: block;
   margin: 30px auto;
-  padding: 0;
-  overflow: hidden;
-  border-width: 3px;
-  outline: none;
-  border-radius: 0px;
-  border-color: #fff;
-  background-color: #444;
-  color: #fff;
-  transition: background-color .3s;
-  font-weight: 400;
-  font-size: 80px; }
-  /* line 347, scss/partials/_base.scss */
-  .btn a {
-    text-decoration: none;
-    color: inherit; }
-    /* line 350, scss/partials/_base.scss */
-    .btn a a:visited {
-      color: inherit; }
+  padding-top: 30px; }
+  /* line 141, scss/partials/_base.scss */
+  .btn button {
+    display: flex;
+    justify-content: center;
+    background: #fff;
+    box-shadow: none;
+    font-size: 40px;
+    min-width: 110px;
+    padding: 10px 15px 12px;
+    border-radius: 3px;
+    box-shadow: inset 0 -1px 0 1px rgba(0, 0, 0, 0.1), inset 0 -10px 20px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    outline: none;
+    transition: background 1s, color .5s; }
+    /* line 154, scss/partials/_base.scss */
+    .btn button:hover {
+      background: #83D455;
+      color: #fff; }
 
-/* line 356, scss/partials/_base.scss */
-.btn:hover, .btn:focus {
-  background-color: #CCC; }
-
-/* line 360, scss/partials/_base.scss */
-.btn > * {
-  position: relative; }
-
-/* line 364, scss/partials/_base.scss */
-.btn span {
-  display: block;
-  padding: 12px 24px; }
-
-/* line 369, scss/partials/_base.scss */
-.btn:before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  display: block;
-  width: 0;
-  padding-top: 0;
-  border-radius: 100%;
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%); }
-
-/* line 389, scss/partials/_base.scss */
-.btn:active:before {
-  width: 120%;
-  padding-top: 120%;
-  transition: width .2s ease-out, padding-top .2s ease-out; }
-
-/* line 396, scss/partials/_base.scss */
-#back-btn.span {
-  text-decoration: none; }
+/* line 163, scss/partials/_base.scss */
+#result {
+  display: none;
+  background: #fff;
+  width: 80%;
+  border: 2px solid #999;
+  border-radius: 5px;
+  color: #333640;
+  font-weight: 200;
+  font-size: 50px; }
+  /* line 172, scss/partials/_base.scss */
+  #result p {
+    text-align: center;
+    padding: 10px; }
 
 @media only screen and (min-width: 768px) {
-  /* line 23, scss/partials/_768up.scss */
-  .string li {
-    font-size: 1em;
-    text-align: center; } }
+  /* line 3, scss/partials/_768up.scss */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 0;
+    height: 70px;
+    align-items: center; }
+  /* line 11, scss/partials/_768up.scss */
+  #main-nav {
+    display: flex !important;
+    margin-right: 30px;
+    flex-direction: row;
+    justify-content: flex-end; }
+  /* line 18, scss/partials/_768up.scss */
+  #main-nav li {
+    margin: 0; }
+  /* line 22, scss/partials/_768up.scss */
+  .nav-links {
+    margin-left: 40px; }
+  /* line 26, scss/partials/_768up.scss */
+  #logo {
+    margin-top: 0; }
+  /* line 30, scss/partials/_768up.scss */
+  #navbar-toggle {
+    display: none; }
+  /* line 34, scss/partials/_768up.scss */
+  #logo:hover, .nav-links:hover {
+    color: #E1E7EB; } }
 
 @media only screen and (min-width: 1030px) {
   /* line 1, scss/partials/_1030up.scss */

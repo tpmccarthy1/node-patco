@@ -151,9 +151,9 @@ routeController.getNextTimes = function(req, res){
 					break;
 				}
 				
-				//Send the result to client 
-				res.send("<p>The next train from <span class='highlight'>" + stopName + "</span> towards <span class='highlight'>" + destination + "</span> departs at <span class='highlight'>" + result[0] + "</span>. The next train after departs at <span class='highlight'>" + result[1] + "</span>.</p> <button type='submit' id='submit-btn' class='btn'><span><a href='#top'>Go back</a></span></button>");
-
+				//Send data to client
+				var result = {stopName : stopName, destination : destination, result : result};
+				res.send(result);
 			})
 		
 	}
