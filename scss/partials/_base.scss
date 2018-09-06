@@ -91,8 +91,14 @@ body {
    */
   align-items: center;
 
-  min-height: 300px;
-  padding: 10px;
+  overflow:hidden;
+  height: auto;
+  padding: 20px;
+  background: #fff;
+  width: 90%;
+  margin: 30px auto;
+  border-radius: 25px;
+  transition: max-height 2s ease-out;
 }
 
 
@@ -109,14 +115,41 @@ body {
   margin: 30px auto;
   width: 80%;
   padding-top: 100px;
+
   .nice-select{
     width: 100%;
-    line-height: 90px;
-    height: 90px;
+    line-height: 60px;
+    height: auto;
+    padding: 30px;
+    background: $base-background;
+    border-radius: 15px 15px 0px 0px;
+    border-color: #999;
+    margin-bottom: 30px;
+    text-align: center;
     .current{
     text-align: center;
     font-size: 85px;  
+
     }
+
+    .option{
+    font-size: 45px;
+    text-align: center;
+    padding-top: 10px;
+
+    }
+
+  .list{
+  width: 100%;
+  border-color: #999;
+  background: inherit;
+  border-radius: 0px;
+  }
+
+  .current{
+  text-align: center;
+  }
+
   }
   h2{
     font-size: 80px;
@@ -127,9 +160,7 @@ body {
 }
 
 //Nice select overrides
-.list{
-  width: 100%;
-}
+
 
 .option{
 
@@ -163,17 +194,16 @@ body {
 
 #result{
   display: none;
-  background: #fff;
-  width: 80%;
+  background: $base-background;
+  width: 90%;
   border: 2px solid #999;
-  border-radius: 5px;
+  border-radius: 25px;
   color: $base-font-color;
   font-weight: 200;
   font-size: 80px;
-  p{
-    text-align: center;
-    padding: 10px;
-  }
+  margin-bottom: 30px;
+  text-align: center;
+  padding: 20px;
 }
 
 
