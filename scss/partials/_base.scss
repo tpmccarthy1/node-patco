@@ -124,6 +124,7 @@ body {
     background: $base-background;
     border-radius: 15px 15px 0px 0px;
     border-color: #999;
+    border-width: 0px 2px 2px 2px;
     margin-bottom: 30px;
     text-align: center;
     .current{
@@ -133,21 +134,23 @@ body {
     }
 
     .option{
-    font-size: 45px;
-    text-align: center;
-    padding-top: 10px;
-
+      font-size: 50px;
+      padding-top: 20px;
+      padding-bottom: 20px;
     }
 
+  
+
   .list{
-  width: 100%;
-  border-color: #999;
-  background: inherit;
-  border-radius: 0px;
+    width: 100%;
+    border-color: #999;
+    background: inherit;
+    border-radius: 0px;
+    overflow: scroll;
   }
 
   .current{
-  text-align: center;
+    text-align: center;
   }
 
   }
@@ -159,12 +162,6 @@ body {
 
 }
 
-//Nice select overrides
-
-
-.option{
-
-}
 
 .btn{
   margin: 60px auto;

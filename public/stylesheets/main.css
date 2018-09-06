@@ -308,36 +308,38 @@ body {
     background: #E1E7EB;
     border-radius: 15px 15px 0px 0px;
     border-color: #999;
+    border-width: 0px 2px 2px 2px;
     margin-bottom: 30px;
     text-align: center; }
-    /* line 129, scss/partials/_base.scss */
+    /* line 130, scss/partials/_base.scss */
     .select .nice-select .current {
       text-align: center;
       font-size: 85px; }
-    /* line 135, scss/partials/_base.scss */
+    /* line 136, scss/partials/_base.scss */
     .select .nice-select .option {
-      font-size: 45px;
-      text-align: center;
-      padding-top: 10px; }
-    /* line 142, scss/partials/_base.scss */
+      font-size: 50px;
+      padding-top: 20px;
+      padding-bottom: 20px; }
+    /* line 144, scss/partials/_base.scss */
     .select .nice-select .list {
       width: 100%;
       border-color: #999;
       background: inherit;
-      border-radius: 0px; }
-    /* line 149, scss/partials/_base.scss */
+      border-radius: 0px;
+      overflow: scroll; }
+    /* line 152, scss/partials/_base.scss */
     .select .nice-select .current {
       text-align: center; }
-  /* line 154, scss/partials/_base.scss */
+  /* line 157, scss/partials/_base.scss */
   .select h2 {
     font-size: 80px;
     padding-bottom: 40px; }
 
-/* line 169, scss/partials/_base.scss */
+/* line 166, scss/partials/_base.scss */
 .btn {
   margin: 60px auto;
   padding-top: 90px; }
-  /* line 173, scss/partials/_base.scss */
+  /* line 170, scss/partials/_base.scss */
   .btn button {
     display: flex;
     justify-content: center;
@@ -351,12 +353,12 @@ body {
     cursor: pointer;
     outline: none;
     transition: background 1s, color .5s; }
-    /* line 186, scss/partials/_base.scss */
+    /* line 183, scss/partials/_base.scss */
     .btn button:hover {
       background: #83D455;
       color: #fff; }
 
-/* line 195, scss/partials/_base.scss */
+/* line 192, scss/partials/_base.scss */
 #result {
   display: none;
   background: #E1E7EB;
