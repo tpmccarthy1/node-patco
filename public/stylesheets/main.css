@@ -336,7 +336,7 @@ body {
 /* line 163, scss/partials/_base.scss */
 .btn {
   margin: 0 auto;
-  padding-top: 10px;
+  padding: 10px 0 30px 0;
   text-align: center; }
   /* line 168, scss/partials/_base.scss */
   .btn button {
@@ -356,6 +356,7 @@ body {
 
 /* line 187, scss/partials/_base.scss */
 #result {
+  margin-top: 20px;
   display: none;
   width: 100%;
   border-radius: 25px;
@@ -366,11 +367,11 @@ body {
   text-align: center;
   padding: 10px; }
 
-/* line 199, scss/partials/_base.scss */
+/* line 200, scss/partials/_base.scss */
 #back-btn {
   margin-top: 30px; }
 
-/* line 203, scss/partials/_base.scss */
+/* line 204, scss/partials/_base.scss */
 .show {
   display: block !important; }
 
@@ -406,4 +407,114 @@ body {
     display: none; }
   /* line 39, scss/partials/_768up.scss */
   #logo:hover, .nav-links:hover {
-    color: #E1E7EB; } }
+    color: #E1E7EB; }
+  /* line 45, scss/partials/_768up.scss */
+  #app {
+    /**
+   * Lay out the children of this container with
+   * flexbox.
+   */
+    display: flex;
+    /**
+   * Rotate the main axis so that the children
+   * are laid out vertically, the same as in the
+   * above "Side bar" example.
+   */
+    flex-direction: column;
+    /**
+   * Instead of pushing the children apart, as in
+   * previous examples, we will group them together
+   * in the center of their container.
+   */
+    justify-content: center;
+    /**
+   * Align the children in the center, along
+   * the main axis. Because the direction is
+   * "column" this has a similar effect as setting
+   * text-align: center.
+   */
+    align-items: center;
+    overflow: hidden;
+    height: auto;
+    padding: 20px;
+    background: #fff;
+    width: 90%;
+    margin: 80px auto;
+    border-radius: 25px;
+    transition: max-height 2s ease-out; }
+  /* line 85, scss/partials/_768up.scss */
+  .input {
+    width: 100%; }
+    /* line 87, scss/partials/_768up.scss */
+    .input ul {
+      justify-content: center; }
+  /* line 94, scss/partials/_768up.scss */
+  .select {
+    margin: 10px auto;
+    width: 80%;
+    padding-top: 20px;
+    text-align: center; }
+    /* line 100, scss/partials/_768up.scss */
+    .select .option {
+      font-size: 50px;
+      padding-top: 10px;
+      padding-bottom: 10px; }
+    /* line 106, scss/partials/_768up.scss */
+    .select select {
+      text-align-last: center;
+      width: 80%;
+      border: 2px solid black;
+      padding: 15px;
+      font-size: 20px;
+      outline: none; }
+    /* line 117, scss/partials/_768up.scss */
+    .select .list {
+      width: 100%;
+      border-color: #999;
+      background: inherit;
+      border-radius: 0px;
+      overflow: scroll; }
+    /* line 125, scss/partials/_768up.scss */
+    .select .current {
+      text-align: center; }
+    /* line 129, scss/partials/_768up.scss */
+    .select h2 {
+      font-size: 40px;
+      padding-bottom: 20px; }
+  /* line 138, scss/partials/_768up.scss */
+  .btn {
+    margin: 0 auto;
+    padding-top: 10px;
+    text-align: center; }
+    /* line 143, scss/partials/_768up.scss */
+    .btn button {
+      background: #fff;
+      box-shadow: none;
+      font-size: 20px;
+      padding: 10px 10px;
+      border-radius: 1px;
+      box-shadow: inset 0 -1px 0 1px rgba(0, 0, 0, 0.1), inset 0 -10px 20px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      outline: none;
+      transition: background 1s, color .5s; }
+      /* line 153, scss/partials/_768up.scss */
+      .btn button:hover {
+        background: #83D455;
+        color: #fff; }
+  /* line 162, scss/partials/_768up.scss */
+  #result {
+    display: none;
+    width: 100%;
+    border-radius: 25px;
+    color: #333640;
+    font-weight: 200;
+    font-size: 40px;
+    margin-bottom: 30px;
+    text-align: center;
+    padding: 10px; }
+  /* line 174, scss/partials/_768up.scss */
+  #back-btn {
+    margin-top: 30px; }
+  /* line 178, scss/partials/_768up.scss */
+  .show {
+    display: block !important; } }

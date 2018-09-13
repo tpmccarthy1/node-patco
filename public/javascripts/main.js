@@ -44,7 +44,7 @@ var optionsContainer = document.querySelector('#input');
 //Display AJAX response
 function showResponse(ajaxResponse){
   responseContainer.innerHTML = "<p>The next train departing from " + ajaxResponse.stopName + " is at " + ajaxResponse.result[0] + 
-  ". The following train is departing at " + ajaxResponse.result[1] + ".</p> <span class='btn'><button id='back-btn' class='btn'><span>Go Back</span></button></span>";
+  ". The following train is departing at " + ajaxResponse.result[1] + ".</p> <span class='btn'><button id='back-btn' class='btn'>Go Back</button></span>";
   //show response container
   optionsContainer.style.display="none";
   optionsContainer.classList.remove('show');
@@ -58,12 +58,12 @@ app.addEventListener("click", function(e){
 
 console.log(e.target.id);
 //AJAX call button 
-  if(e.target.id == "submit-btn"){
+  if(e.target && e.target.id == "submit-btn"){
       //submit AJAX call
       submit();
   }
 
-  if(e.target.id == "back-btn"){
+  if(e.target && e.target.id == "back-btn"){
       //Go back to form
         responseContainer.style.display="none";
         responseContainer.classList.remove('show');
