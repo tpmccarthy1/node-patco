@@ -1,11 +1,16 @@
 //Desktop navbar styles
-
+html{
+}
 .navbar {
   display: flex;
   justify-content: space-between;
   padding-bottom: 0;
   height: 70px;
   align-items: center;
+  font-size: 20px;
+  h1{
+    font-size: 50px;
+  }
 }
 
 #main-nav {
