@@ -1,6 +1,6 @@
 
 // Colors
-$base-font: 'Roboto', sans-serif;
+$base-font: 'roboto', sans-serif;
 $base-font-color: #333640;
 $base-background: #E1E7EB;
 $highlight-color: #E1E7EB;
@@ -10,7 +10,7 @@ $highlight-color: #E1E7EB;
  }
 
 body {
-  font-family: $base-font;
+  font-family: $base-font, Arial;
   background: $base-background;
   width: 100%;
 }
@@ -152,7 +152,9 @@ body {
   }
 
   h2{
+    font-family: $base-font;
     font-size: 40px;
+    font-weight: 200;
     padding-bottom: 20px;
 
   }

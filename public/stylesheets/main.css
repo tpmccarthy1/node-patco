@@ -205,7 +205,7 @@ table {
 
 /* line 12, scss/partials/_base.scss */
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "roboto", sans-serif, Arial;
   background: #E1E7EB;
   width: 100%; }
 
@@ -330,15 +330,17 @@ body {
     text-align: center; }
   /* line 154, scss/partials/_base.scss */
   .select h2 {
+    font-family: "roboto", sans-serif;
     font-size: 40px;
+    font-weight: 200;
     padding-bottom: 20px; }
 
-/* line 163, scss/partials/_base.scss */
+/* line 165, scss/partials/_base.scss */
 .btn {
   margin: 0 auto;
   padding: 10px 0 30px 0;
   text-align: center; }
-  /* line 168, scss/partials/_base.scss */
+  /* line 170, scss/partials/_base.scss */
   .btn button {
     background: #fff;
     box-shadow: none;
@@ -349,12 +351,12 @@ body {
     cursor: pointer;
     outline: none;
     transition: background 1s, color .5s; }
-    /* line 178, scss/partials/_base.scss */
+    /* line 180, scss/partials/_base.scss */
     .btn button:hover {
       background: #83D455;
       color: #fff; }
 
-/* line 187, scss/partials/_base.scss */
+/* line 189, scss/partials/_base.scss */
 #result {
   margin-top: 20px;
   display: none;
@@ -367,11 +369,11 @@ body {
   text-align: center;
   padding: 10px; }
 
-/* line 200, scss/partials/_base.scss */
+/* line 202, scss/partials/_base.scss */
 #back-btn {
   margin-top: 30px; }
 
-/* line 204, scss/partials/_base.scss */
+/* line 206, scss/partials/_base.scss */
 .show {
   display: block !important; }
 
