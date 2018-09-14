@@ -18,11 +18,10 @@ body {
 //Base navbar styles
 
 .navbar {
-  position: fixed;
   z-index: 999;
   top: 0;
   width: 100%;
-  font-size: 40px;
+  font-size: 20px;
   background-image: linear-gradient(260deg, #59AF79 0%, #83D455 100%); 
   border: 1px solid rgba(0,0,0,0.2);
   padding-bottom: 10px;
@@ -101,7 +100,7 @@ body {
   padding: 20px;
   background: #fff;
   width: 90%;
-  margin: 80px auto;
+  margin: 40px auto;
   border-radius: 25px;
   transition: max-height 2s ease-out;
 }

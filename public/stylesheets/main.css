@@ -211,36 +211,35 @@ body {
 
 /* line 20, scss/partials/_base.scss */
 .navbar {
-  position: fixed;
   z-index: 999;
   top: 0;
   width: 100%;
-  font-size: 40px;
+  font-size: 20px;
   background-image: linear-gradient(260deg, #59AF79 0%, #83D455 100%);
   border: 1px solid rgba(0, 0, 0, 0.2);
   padding-bottom: 10px; }
-  /* line 29, scss/partials/_base.scss */
+  /* line 28, scss/partials/_base.scss */
   .navbar h1 {
     color: #fff;
     font-size: 40px; }
 
-/* line 35, scss/partials/_base.scss */
+/* line 34, scss/partials/_base.scss */
 #main-nav {
   list-style-type: none;
   display: none;
   flex-direction: column; }
 
-/* line 41, scss/partials/_base.scss */
+/* line 40, scss/partials/_base.scss */
 .nav-links, #logo {
   text-decoration: none;
   color: #333640; }
 
-/* line 46, scss/partials/_base.scss */
+/* line 45, scss/partials/_base.scss */
 #main-nav li {
   text-align: center;
   margin: 15px auto; }
 
-/* line 51, scss/partials/_base.scss */
+/* line 50, scss/partials/_base.scss */
 #logo {
   color: #E1E7EB;
   display: inline-block;
@@ -248,7 +247,7 @@ body {
   margin-top: 10px;
   margin-left: 20px; }
 
-/* line 59, scss/partials/_base.scss */
+/* line 58, scss/partials/_base.scss */
 #navbar-toggle {
   position: absolute;
   top: 10px;
@@ -257,7 +256,7 @@ body {
   color: #fff;
   font-size: 40px; }
 
-/* line 70, scss/partials/_base.scss */
+/* line 69, scss/partials/_base.scss */
 #app {
   /**
    * Lay out the children of this container with
@@ -288,29 +287,29 @@ body {
   padding: 20px;
   background: #fff;
   width: 90%;
-  margin: 80px auto;
+  margin: 40px auto;
   border-radius: 25px;
   transition: max-height 2s ease-out; }
 
-/* line 110, scss/partials/_base.scss */
+/* line 109, scss/partials/_base.scss */
 .input {
   width: 100%; }
-  /* line 112, scss/partials/_base.scss */
+  /* line 111, scss/partials/_base.scss */
   .input ul {
     justify-content: center; }
 
-/* line 119, scss/partials/_base.scss */
+/* line 118, scss/partials/_base.scss */
 .select {
   margin: 10px auto;
   width: 80%;
   padding-top: 20px;
   text-align: center; }
-  /* line 125, scss/partials/_base.scss */
+  /* line 124, scss/partials/_base.scss */
   .select .option {
     font-size: 50px;
     padding-top: 10px;
     padding-bottom: 10px; }
-  /* line 131, scss/partials/_base.scss */
+  /* line 130, scss/partials/_base.scss */
   .select select {
     text-align-last: center;
     width: 80%;
@@ -318,29 +317,29 @@ body {
     padding: 15px;
     font-size: 20px;
     outline: none; }
-  /* line 142, scss/partials/_base.scss */
+  /* line 141, scss/partials/_base.scss */
   .select .list {
     width: 100%;
     border-color: #999;
     background: inherit;
     border-radius: 0px;
     overflow: scroll; }
-  /* line 150, scss/partials/_base.scss */
+  /* line 149, scss/partials/_base.scss */
   .select .current {
     text-align: center; }
-  /* line 154, scss/partials/_base.scss */
+  /* line 153, scss/partials/_base.scss */
   .select h2 {
     font-family: "roboto", sans-serif;
     font-size: 40px;
     font-weight: 200;
     padding-bottom: 20px; }
 
-/* line 165, scss/partials/_base.scss */
+/* line 164, scss/partials/_base.scss */
 .btn {
   margin: 0 auto;
   padding: 10px 0 30px 0;
   text-align: center; }
-  /* line 170, scss/partials/_base.scss */
+  /* line 169, scss/partials/_base.scss */
   .btn button {
     background: #fff;
     box-shadow: none;
@@ -351,12 +350,12 @@ body {
     cursor: pointer;
     outline: none;
     transition: background 1s, color .5s; }
-    /* line 180, scss/partials/_base.scss */
+    /* line 179, scss/partials/_base.scss */
     .btn button:hover {
       background: #83D455;
       color: #fff; }
 
-/* line 189, scss/partials/_base.scss */
+/* line 188, scss/partials/_base.scss */
 #result {
   margin-top: 20px;
   display: none;
@@ -369,11 +368,11 @@ body {
   text-align: center;
   padding: 10px; }
 
-/* line 202, scss/partials/_base.scss */
+/* line 201, scss/partials/_base.scss */
 #back-btn {
   margin-top: 30px; }
 
-/* line 206, scss/partials/_base.scss */
+/* line 205, scss/partials/_base.scss */
 .show {
   display: block !important; }
 
