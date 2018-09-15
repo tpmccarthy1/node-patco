@@ -44,13 +44,13 @@ routeController.getNextTimes = function(req, res){
 		var id = new Date();
 		switch(id.getDay()){
     		case 6:
-	        	id = 30;
+	        	id = 34;
 	        	break;
 		    case 7:
-		        id = 31;
+		        id = 35;
 		        break;
 		    default:
-		        id = 32;
+		        id = 33;
 		}
 
 
