@@ -1,30 +1,39 @@
 const _ = require('lodash');
 
-function coordsToString(point1, point2) {
-  return `${point1[0]},${point1[1]},${point2[0]},${point2[1]}`;
-}
-
 function consolidateShapes(shapes) {
-  const coordKeys = {};
-  const lineStrings = shapes.map(shape => shape.map(point => point.loc));
-  let count = 0;
-  while (count < lineStrings.length) {
-    lineStrings[count].forEach((point, idx) => {
-      if (idx < lineStrings[count].length - 1) {
-        const key = coordsToString(point, lineStrings[count][idx + 1]);
-        if (coordKeys[key]) {
-          lineStrings.push(lineStrings[count].splice(idx + 1));
-          lineStrings[count].pop();
-        } else {
-          coordKeys[key] = true;
+  const keys = new Set();
+  const segmentsArray = shapes.map(shape => shape.reduce((memo, point, idx) => {
+    if (idx > 1) {
+      memo.push([shape[idx - 1].loc, point.loc]);
+    }
+    return memo;
+  }, []));
+  const consolidatedLineStrings = [];
+
+  for (const segments of segmentsArray) {
+    consolidatedLineStrings.push([]);
+
+    for (const segment of segments) {
+      const key1 = `${segment[0][0]},${segment[0][1]},${segment[1][0]},${segment[1][1]}`;
+      const key2 = `${segment[1][0]},${segment[1][1]},${segment[0][0]},${segment[0][1]}`;
+      const currentLine = _.last(consolidatedLineStrings);
+
+      if (keys.has(key1) || keys.has(key2)) {
+        consolidatedLineStrings.push([]);
+      } else {
+        // If its the first segment in a linestring, add both points
+        if (currentLine.length === 0) {
+          currentLine.push(segment[0]);
         }
+        currentLine.push(segment[1]);
+        keys.add(key1);
+        keys.add(key2);
       }
-    });
-    count++;
+    }
   }
 
   // Remove lineStrings with no length or with only one point
-  return _.filter(lineStrings, lineString => lineString.length > 1);
+  return _.filter(_.compact(consolidatedLineStrings), lineString => lineString.length > 1);
 }
 
 exports.shapesToGeoJSONFeatures = (shapes, properties = {}) => {
