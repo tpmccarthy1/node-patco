@@ -24,7 +24,7 @@ function timeNow(){
 		var d = new Date(); // for now
 
 		//Timezone offset UTC - 5 
-		d.setTime(d.getTime() + d.getTimezoneOffset() * 60 * 1000 /* convert to UTC */ - (/* UTC-5 */ 4) * 60 * 60 * 1000);
+		d.setTime(d.getTime() + d.getTimezoneOffset() * 60 * 1000 /* convert to UTC */ - (/* UTC-5 */ 5) * 60 * 60 * 1000);
 		console.log('UTC-5 Time:', d);
 
 		var hours = d.getHours(); // => 9
@@ -44,13 +44,13 @@ routeController.getNextTimes = function(req, res){
 		var id = new Date();
 		switch(id.getDay()){
     		case 6:
-	        	id = 34;
+	        	id = 37;
 	        	break;
 		    case 7:
-		        id = 35;
+		        id = 38;
 		        break;
 		    default:
-		        id = 33;
+		        id = 36;
 		}
 
 
