@@ -12,7 +12,7 @@ Icon
 
 # dependencies
 /node_modules
-/config.json
+config.json
 
 # Files that might appear in the root of a volume
 .DocumentRevisions-V100
